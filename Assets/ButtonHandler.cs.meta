@@ -1,10 +1,12 @@
 fileFormatVersion: 2
 guid: 16e1c44ce7610ce4085ac1e01d859d7b
-timeCreated: 1505809908
+timeCreated: 1506410090
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - BtnInv: {fileID: 1250333288130010, guid: a25b23cd011d9524295d551b7c13f304, type: 2}
+  - Canvas: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

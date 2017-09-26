@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
-    ButtonHandler Buttons;
+    public ButtonHandler Buttons;
     Player MyPlayer;
     Room TestRoom;
     Clue TestClue;
@@ -16,8 +16,10 @@ public class GameController : MonoBehaviour {
         this.TestRoom = new Room(BackgroundPicture,"test room");
         Notebook testNotebook = new Notebook();
         this.MyPlayer = new Player("TestDude", this.TestRoom, testNotebook);
-        this.Buttons = new ButtonHandler(this.MyPlayer.GetNotebook());
+        this.Buttons.CreateDefaultButtons(testNotebook);
         this.InitializeClue("BrokenGlass", "Broken Glass", "Wonder how this was broken?");
+        this.InitializeClue("BrokenGlass", "Broken Glass1", "Wonder how this was broken?");
+        this.InitializeClue("BrokenGlass", "Broken Glass2", "Wonder how this was broken?");
     }
 	
     private void InitializeClue(string resourceName,string name,string description)

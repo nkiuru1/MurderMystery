@@ -5,14 +5,16 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ButtonHandler
+public class ButtonHandler : MonoBehaviour
 {
+    public GameObject BtnInv;
+    public GameObject Canvas;
     private Dictionary<string, PointerController> Buttons;
     private Notebook PlayerNotebook;
     private List<PointerController> clues;
 
 	static readonly List<string> UIDefaultButtons = new List<string>()
-		{"BtnNote", "BtnMap", "BtnTalk", "BtnSearch", "BtnBack", "BtnBackNote","BtnItem0"};
+		{"BtnNote", "BtnMap", "BtnTalk", "BtnSearch", "BtnBack", "BtnBackNote"};
 
 	static readonly List<string> UIMainVisible = new List<string>()
 		{"BtnNote", "BtnMap", "BtnTalk", "BtnSearch"};
@@ -50,9 +52,12 @@ public class ButtonHandler
         return Buttons[Name].GetPointerDown();
     }
 
-    private void CreateDefaultButtons()
+    public void CreateDefaultButtons(Notebook notebook)
     {
-		foreach (string b in UIDefaultButtons)
+        Buttons = new Dictionary<string, PointerController>();
+        this.PlayerNotebook = notebook;
+
+        foreach (string b in UIDefaultButtons)
 		{
 			AddButton(b);
 		}
@@ -73,7 +78,18 @@ public class ButtonHandler
 		{
 			SetButtonsState(false, UINotebookInvisible);
 			SetButtonsState(true, UINotebookVisible);
-		}
+            int y = 0;
+            foreach (Clue item in this.PlayerNotebook.GetClues())
+            {
+                Vector2 pos = BtnInv.transform.position;
+                y += 40;
+                pos.y = y;
+                BtnInv.transform.position = pos;
+                BtnInv.AddComponent<PointerController>();
+                BtnInv.GetComponentInChildren<Text>().text = item.GetName();
+                Instantiate(BtnInv).transform.SetParent(Canvas.transform, false);
+            }
+        }
 
 		if (ButtonIsClicked("BtnBackNote"))
 		{
@@ -97,13 +113,6 @@ public class ButtonHandler
 				// do something here
 			}
 		}*/
-    }
-
-    public ButtonHandler(Notebook notebook)
-    {
-        Buttons = new Dictionary<string, PointerController>();
-        CreateDefaultButtons();
-        this.PlayerNotebook = notebook;
     }
 
     public void RevealInventoryButtons()
