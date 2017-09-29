@@ -12,8 +12,6 @@ public class GameController : MonoBehaviour {
     public Map GameMap;
     Room Location;
     private string BackgroundPath;
-    public Canvas mapCanvas;
-    public Canvas gameCanvas;
 
     // Use this for initialization
     void Start () {
@@ -22,13 +20,12 @@ public class GameController : MonoBehaviour {
         this.TestRoom = new Room("Lobby","test room");
         Notebook testNotebook = new Notebook();
         GameMap.Createmap();
-        mapCanvas.gameObject.SetActive(false);
-        gameCanvas.gameObject.SetActive(true);
         this.MyPlayer = new Player("TestDude", this.TestRoom, testNotebook);
         this.Buttons.CreateDefaultButtons(testNotebook);
         this.InitializeClue("BrokenGlass", "Broken Glass", "Wonder how this was broken?");
         this.InitializeClue("BrokenGlass", "Broken Glass1", "Wonder how this was broken?");
         this.InitializeClue("BrokenGlass", "Broken Glass2", "Wonder how this was broken?");
+        this.InitializeClue("BrokenGlass", "Broken Glass3", "Wonder how this was broken?");
         this.Location = new Room(null,null);
     }
 	
@@ -44,7 +41,7 @@ public class GameController : MonoBehaviour {
 	void Update ()
     {
         this.Buttons.Clicked();
-        //Location = this.GameMap.Mapclick(Location);
+        Location = this.GameMap.Mapclick(Location);
         if (BackgroundPath != Location.GetBackground() && Location.GetBackground() != null)
         {
             BackgroundPicture.texture = (Texture)Resources.Load(Location.GetBackground(), typeof(Texture));

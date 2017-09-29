@@ -9,17 +9,27 @@ public class ButtonHandler : MonoBehaviour
 {
     public GameObject BtnSearch, BtnNote, BtnMap, BtnTalk, BtnBack, BtnInv, Canvas;
     public Text DescriptionText;
+    public Canvas mapCanvas;
+    public Canvas InvCanvas;
     private GameObject ButtonSearch, ButtonNote, ButtonMap, ButtonTalk, ButtonBack;
     private Notebook PlayerNotebook;
     private Dictionary<Clue, GameObject> Clues = new Dictionary<Clue, GameObject>();
 
+    /*
+        Calls PointerController to see if Button is clicked
+    */
     private bool ButtonIsClicked(GameObject btn)
     {
         return btn.GetComponent<PointerController>().GetPointerDown();
     }
 
+    /*
+        Create Default UI Buttons and set-up Canvas
+    */
     public void CreateDefaultButtons(Notebook notebook)
     {
+        this.mapCanvas.enabled = false;
+        this.InvCanvas.enabled = false;
         ButtonSearch = Instantiate(BtnSearch);
         ButtonSearch.transform.SetParent(Canvas.transform, false);
         ButtonNote = Instantiate(BtnNote);
@@ -33,7 +43,9 @@ public class ButtonHandler : MonoBehaviour
         ButtonBack.SetActive(false);
         this.PlayerNotebook = notebook;
     }
-
+    /*
+      Method called from GameController, checks if buttons have been clicked.  
+    */
     public void Clicked()
     {
 
@@ -41,42 +53,55 @@ public class ButtonHandler : MonoBehaviour
         {
             this.ChangeUI();
         }
-
+        //Opens Inv Canvas and generated Buttons for items in inv
         if (ButtonIsClicked(ButtonNote))
         {
             this.ChangeUI();
-            int y = 0;
+            this.InvCanvas.enabled = true;
+            int y = 180;
             foreach (Clue item in this.PlayerNotebook.GetClues())
             {
                 GameObject obj = Instantiate(BtnInv);
                 Vector2 pos = obj.transform.position;
-                y += 40;
                 pos.y = y;
                 obj.transform.position = pos;
                 obj.GetComponentInChildren<Text>().text = item.GetName();
-                obj.transform.SetParent(Canvas.transform, false);
-
+                obj.transform.SetParent(InvCanvas.transform, false);
                 Clues.Add(item, obj);
+                y -= 40;
             }
         }
         if (ButtonMap != null && ButtonIsClicked(ButtonMap))
         {
             this.ChangeUI();
+            this.mapCanvas.enabled = true;
         }
         if (ButtonTalk != null && ButtonIsClicked(ButtonTalk))
         {
             this.ChangeUI();
         }
-        if(ButtonBack != null && ButtonIsClicked(ButtonBack))
+        //Disables other canvases, all item buttons and sets Default UI
+        if (ButtonBack != null && ButtonIsClicked(ButtonBack))
         {
-            this.SetDefaultUI();
             foreach (Clue item in this.Clues.Keys)
             {
                 this.Clues[item].SetActive(false);
             }
+            this.SetDefaultUI();
+            this.InvCanvas.enabled = false;
+        }
+        //Checks if Inventory buttons have been clicked
+        foreach (Clue item in this.Clues.Keys)
+        {
+            if (ButtonIsClicked(this.Clues[item]))
+            {
+                this.DescriptionText.text = item.GetDescription();
+            }
         }
     }
-
+    /*
+        Resets UI back to default state  
+    */
     private void SetDefaultUI()
     {
         ButtonMap.SetActive(true);
@@ -86,7 +111,14 @@ public class ButtonHandler : MonoBehaviour
 
         ButtonBack.SetActive(false);
 
+        //this.Canvas.GetComponent<Canvas>().enabled = true;
+        this.mapCanvas.enabled = false;
+        this.Clues = new Dictionary<Clue, GameObject>();
+        this.DescriptionText.text = "";
     }
+    /*
+        Disables all buttons except the back button  
+    */
     private void ChangeUI()
     {
         ButtonMap.SetActive(false);

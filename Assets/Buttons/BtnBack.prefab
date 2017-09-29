@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114159214917065020}
   - component: {fileID: 114846603545294350}
   - component: {fileID: 114581080984275896}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BtnBack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

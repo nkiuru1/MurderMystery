@@ -49,14 +49,14 @@ public class Map : MonoBehaviour
         Dinner = new Room("Mansion_Dining room_2", "Dining Room");
         Servant = new Room("Mansion_Study", "Servants' room");
         Current = new Room(null, null);
-        //StudyBtn = (PointerController)GameObject.Find("BtnStudy").GetComponent<PointerController>();
-        //LibraryBtn = (PointerController)GameObject.Find("BtnLibrary").GetComponent<PointerController>();
-        //DiningBtn = (PointerController)GameObject.Find("BtnDiningroom").GetComponent<PointerController>();
-        //LoungeBtn = (PointerController)GameObject.Find("BtnLounge").GetComponent<PointerController>();
-        //LobbyBtn = (PointerController)GameObject.Find("BtnLobby").GetComponent<PointerController>();
-        //ServantBtn = (PointerController)GameObject.Find("BtnServantroom").GetComponent<PointerController>();
-        //BedBtn = (PointerController)GameObject.Find("BtnBedroom").GetComponent<PointerController>();
-        //KitchenBtn = (PointerController)GameObject.Find("BtnKitchen").GetComponent<PointerController>();
+        StudyBtn = (PointerController)GameObject.Find("BtnStudy").GetComponent<PointerController>();
+        LibraryBtn = (PointerController)GameObject.Find("BtnLibrary").GetComponent<PointerController>();
+        DiningBtn = (PointerController)GameObject.Find("BtnDiningroom").GetComponent<PointerController>();
+        LoungeBtn = (PointerController)GameObject.Find("BtnLounge").GetComponent<PointerController>();
+        LobbyBtn = (PointerController)GameObject.Find("BtnLobby").GetComponent<PointerController>();
+        ServantBtn = (PointerController)GameObject.Find("BtnServantroom").GetComponent<PointerController>();
+        BedBtn = (PointerController)GameObject.Find("BtnBedroom").GetComponent<PointerController>();
+        KitchenBtn = (PointerController)GameObject.Find("BtnKitchen").GetComponent<PointerController>();
 
     }
 
