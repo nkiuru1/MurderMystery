@@ -85,7 +85,7 @@ public class ButtonHandler : MonoBehaviour
         {
             foreach (Clue item in this.Clues.Keys)
             {
-                this.Clues[item].SetActive(false);
+                Destroy(this.Clues[item]);
             }
             this.SetDefaultUI();
             this.InvCanvas.enabled = false;
@@ -111,9 +111,8 @@ public class ButtonHandler : MonoBehaviour
 
         ButtonBack.SetActive(false);
 
-        //this.Canvas.GetComponent<Canvas>().enabled = true;
         this.mapCanvas.enabled = false;
-        this.Clues = new Dictionary<Clue, GameObject>();
+        this.Clues.Clear();
         this.DescriptionText.text = "";
     }
     /*
