@@ -13,13 +13,11 @@
     <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
-    <CompilerResponseFile>
-    </CompilerResponseFile>
+    <CompilerResponseFile></CompilerResponseFile>
     <UnityProjectType>Game:1</UnityProjectType>
     <UnityBuildTarget>StandaloneWindows64:19</UnityBuildTarget>
     <UnityVersion>2017.1.1f1</UnityVersion>
-    <RootNamespace>
-    </RootNamespace>
+    <RootNamespace></RootNamespace>
     <LangVersion>4</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -86,14 +84,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\ButtonHandler.cs" />
-    <Compile Include="Assets\Character.cs" />
-    <Compile Include="Assets\Clue.cs" />
-    <Compile Include="Assets\GameController.cs" />
-    <Compile Include="Assets\Notebook.cs" />
-    <Compile Include="Assets\Player.cs" />
-    <Compile Include="Assets\PointerController.cs" />
-    <Compile Include="Assets\Room.cs" />
+    <Compile Include="Assets\Scripts\ButtonHandler.cs" />
+    <Compile Include="Assets\Scripts\Character.cs" />
+    <Compile Include="Assets\Scripts\Clue.cs" />
+    <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Map.cs" />
+    <Compile Include="Assets\Scripts\Notebook.cs" />
+    <Compile Include="Assets\Scripts\Player.cs" />
+    <Compile Include="Assets\Scripts\PointerController.cs" />
+    <Compile Include="Assets\Scripts\Room.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

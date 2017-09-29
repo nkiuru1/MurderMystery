@@ -22,16 +22,7 @@ GameObject:
   - component: {fileID: 222195434573988938}
   - component: {fileID: 114455054957981914}
   - component: {fileID: 114916538230094818}
-  - component: {fileID: 114021278833444758}
-  - component: {fileID: 114036499612313294}
-  - component: {fileID: 114906544836400356}
-  - component: {fileID: 114778043182102102}
-  - component: {fileID: 114660439021832312}
-  - component: {fileID: 114220966707708568}
-  - component: {fileID: 114038750015745844}
-  - component: {fileID: 114717622150569490}
-  - component: {fileID: 114227569082846114}
-  - component: {fileID: 114825856134824670}
+  - component: {fileID: 114384826750357608}
   m_Layer: 0
   m_Name: BtnItem
   m_TagString: Untagged
@@ -56,51 +47,7 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &114021278833444758
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114036499612313294
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114038750015745844
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114220966707708568
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114227569082846114
+--- !u!114 &114384826750357608
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -131,7 +78,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -170,62 +117,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Broken Glass2
---- !u!114 &114660439021832312
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114717622150569490
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114778043182102102
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114825856134824670
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &114906544836400356
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1250333288130010}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_Text: Broken Glass
 --- !u!114 &114916538230094818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -313,6 +205,6 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -174, y: 120}
+  m_AnchoredPosition: {x: -174, y: 40}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}

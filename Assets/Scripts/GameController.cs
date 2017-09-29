@@ -9,17 +9,27 @@ public class GameController : MonoBehaviour {
     Room TestRoom;
     Clue TestClue;
     public RawImage BackgroundPicture;
+    public Map GameMap;
+    Room Location;
+    private string BackgroundPath;
+    public Canvas mapCanvas;
+    public Canvas gameCanvas;
 
     // Use this for initialization
     void Start () {
         BackgroundPicture.texture = (Texture)Resources.Load("Lobby", typeof(Texture));
-        this.TestRoom = new Room(BackgroundPicture,"test room");
+        BackgroundPath = "Lobby";
+        this.TestRoom = new Room("Lobby","test room");
         Notebook testNotebook = new Notebook();
+        GameMap.Createmap();
+        mapCanvas.gameObject.SetActive(false);
+        gameCanvas.gameObject.SetActive(true);
         this.MyPlayer = new Player("TestDude", this.TestRoom, testNotebook);
         this.Buttons.CreateDefaultButtons(testNotebook);
         this.InitializeClue("BrokenGlass", "Broken Glass", "Wonder how this was broken?");
         this.InitializeClue("BrokenGlass", "Broken Glass1", "Wonder how this was broken?");
         this.InitializeClue("BrokenGlass", "Broken Glass2", "Wonder how this was broken?");
+        this.Location = new Room(null,null);
     }
 	
     private void InitializeClue(string resourceName,string name,string description)
@@ -34,5 +44,10 @@ public class GameController : MonoBehaviour {
 	void Update ()
     {
         this.Buttons.Clicked();
+        //Location = this.GameMap.Mapclick(Location);
+        if (BackgroundPath != Location.GetBackground() && Location.GetBackground() != null)
+        {
+            BackgroundPicture.texture = (Texture)Resources.Load(Location.GetBackground(), typeof(Texture));
+        }   
     }
 }

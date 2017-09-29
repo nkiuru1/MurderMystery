@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 public class Room
 {
-    private RawImage Background;
+    private string Background;
     private string Name;
     private List<Clue> CluesInRoom;
     private List<Character> CharactersInRoom;
 
-    public Room(RawImage background, string name)
+    public Room(string background, string name)
     {
         Background = background;
         this.Name = name;
@@ -23,7 +23,7 @@ public class Room
         return this.Name;
     }
 
-    public RawImage GetBackground()
+    public string GetBackground()
     {
         return this.Background;
     }
