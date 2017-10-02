@@ -42,12 +42,12 @@ public class Map : MonoBehaviour
         //Studyimg.texture = (Texture)Resources.Load("Mansion_Study", typeof(Texture));
         Lobby = new Room("Mansion_Lobby_2", "Entrance Hall");
         Lounge = new Room("Mansion_Lounge_2", "Lounge");
-        Library = new Room("Mansion_Servant_Room", "Library");
-        Bed = new Room("Mansion_Library", "Bedroom");
+        Servant = new Room("Mansion_Servant_Room", "Servant");
+        Library = new Room("Mansion_Library", "Library");
         Kitchen = new Room("Mansion_Kitchen", "Kitchen");
-        Study = new Room("Mansion_Bedroom", "Study");
+        Bed = new Room("Mansion_Bedroom", "Bed");
         Dinner = new Room("Mansion_Dining room_2", "Dining Room");
-        Servant = new Room("Mansion_Study", "Servants' room");
+        Study = new Room("Mansion_Study", "Study");
         Current = new Room(null, null);
         StudyBtn = (PointerController)GameObject.Find("BtnStudy").GetComponent<PointerController>();
         LibraryBtn = (PointerController)GameObject.Find("BtnLibrary").GetComponent<PointerController>();

@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour {
     public ButtonHandler Buttons;
+    public RawImage BackgroundPicture;
+    public Map GameMap;
+    public Canvas TestCanvas, TestCanvas2;
     Player MyPlayer;
     Room TestRoom;
     Clue TestClue;
-    public RawImage BackgroundPicture;
-    public Map GameMap;
     Room Location;
     private string BackgroundPath;
 

@@ -51,12 +51,12 @@ public class ButtonHandler : MonoBehaviour
 
         if (ButtonSearch != null && ButtonIsClicked(ButtonSearch))
         {
-            this.ChangeUI();
+            this.SetActionUI();
         }
         //Opens Inv Canvas and generated Buttons for items in inv
         if (ButtonIsClicked(ButtonNote))
         {
-            this.ChangeUI();
+            this.SetActionUI();
             this.InvCanvas.enabled = true;
             int y = 180;
             foreach (Clue item in this.PlayerNotebook.GetClues())
@@ -73,14 +73,14 @@ public class ButtonHandler : MonoBehaviour
         }
         if (ButtonMap != null && ButtonIsClicked(ButtonMap))
         {
-            this.ChangeUI();
+            this.SetActionUI();
             this.mapCanvas.enabled = true;
         }
         if (ButtonTalk != null && ButtonIsClicked(ButtonTalk))
         {
-            this.ChangeUI();
+            this.SetActionUI();
         }
-        //Disables other canvases, all item buttons and sets Default UI
+        //Disables other canvases, destroys all item buttons and sets Default UI
         if (ButtonBack != null && ButtonIsClicked(ButtonBack))
         {
             foreach (Clue item in this.Clues.Keys)
@@ -118,7 +118,7 @@ public class ButtonHandler : MonoBehaviour
     /*
         Disables all buttons except the back button  
     */
-    private void ChangeUI()
+    private void SetActionUI()
     {
         ButtonMap.SetActive(false);
         ButtonNote.SetActive(false);
