@@ -30,6 +30,7 @@ public class ButtonHandler : MonoBehaviour
     {
         this.mapCanvas.enabled = false;
         this.InvCanvas.enabled = false;
+
         ButtonSearch = Instantiate(BtnSearch);
         ButtonSearch.transform.SetParent(Canvas.transform, false);
         ButtonNote = Instantiate(BtnNote);
@@ -41,6 +42,7 @@ public class ButtonHandler : MonoBehaviour
         ButtonBack = Instantiate(BtnBack);
         ButtonBack.transform.SetParent(Canvas.transform, false);
         ButtonBack.SetActive(false);
+
         this.PlayerNotebook = notebook;
     }
     /*
@@ -90,7 +92,7 @@ public class ButtonHandler : MonoBehaviour
             this.SetDefaultUI();
             this.InvCanvas.enabled = false;
         }
-        //Checks if Inventory buttons have been clicked
+        //Checks if  an inventory button has been clicked
         foreach (Clue item in this.Clues.Keys)
         {
             if (ButtonIsClicked(this.Clues[item]))

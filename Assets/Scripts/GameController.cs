@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour {
     public ButtonHandler Buttons;
     public RawImage BackgroundPicture;
     public Map GameMap;
-    public Canvas TestCanvas, TestCanvas2;
+    public GameObject Canvas;
     Player MyPlayer;
     Room TestRoom;
     Clue TestClue;
