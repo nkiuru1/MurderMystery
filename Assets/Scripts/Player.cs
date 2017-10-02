@@ -5,7 +5,7 @@ using System.Text;
 
 public class Player : Character
 {
-    private Notebook PlayerNotebook;
+    public Notebook PlayerNotebook;
 
     public Player(string name, Room location, Notebook playerNotebook) : base(name,location)
     {

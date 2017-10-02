@@ -41,6 +41,11 @@ public class Map : MonoBehaviour
         //Dinnerimg.texture = (Texture)Resources.Load("Mansion_Dining room_2", typeof(Texture));
         //Studyimg.texture = (Texture)Resources.Load("Mansion_Study", typeof(Texture));
         Lobby = new Room("Mansion_Lobby_2", "Entrance Hall");
+        List<Clue> temp = new List<Clue>
+        {
+            new Clue("test", "Testclue")
+        };
+        Lobby.SetClues(temp);
         Lounge = new Room("Mansion_Lounge_2", "Lounge");
         Servant = new Room("Mansion_Servant_Room", "Servant");
         Library = new Room("Mansion_Library", "Library");
@@ -99,5 +104,10 @@ public class Map : MonoBehaviour
         {
             return Current;
         }
+    }
+
+    public Room GetStartLocation()
+    {
+        return Lobby;
     }
 }

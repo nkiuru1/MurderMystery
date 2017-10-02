@@ -16,6 +16,8 @@ public class Room
     {
         Background = background;
         this.Name = name;
+        CluesInRoom = new List<Clue>();
+        CharactersInRoom = new List<Character>();
     }
 
     public string GetName()
@@ -31,6 +33,18 @@ public class Room
     public void SetClues(List<Clue> clues)
     {
         this.CluesInRoom = clues;
+    }
+
+    public Clue GetClue(string name)
+    {
+        foreach (Clue item in this.CluesInRoom)
+        {
+            if (item.GetName().Equals(name))
+            {
+                return item;
+            }
+        }
+        return null;
     }
 
     public void SetCharacters(List<Character> characters)

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class ButtonHandler : MonoBehaviour
 {
@@ -12,7 +13,7 @@ public class ButtonHandler : MonoBehaviour
     public Canvas mapCanvas;
     public Canvas InvCanvas;
     private GameObject ButtonSearch, ButtonNote, ButtonMap, ButtonTalk, ButtonBack;
-    private Notebook PlayerNotebook;
+    private Player MyPlayer;
     private Dictionary<Clue, GameObject> Clues = new Dictionary<Clue, GameObject>();
 
     /*
@@ -26,7 +27,7 @@ public class ButtonHandler : MonoBehaviour
     /*
         Create Default UI Buttons and set-up Canvas
     */
-    public void CreateDefaultButtons(Notebook notebook)
+    public void CreateDefaultButtons(Player MyPlayer)
     {
         this.mapCanvas.enabled = false;
         this.InvCanvas.enabled = false;
@@ -43,7 +44,7 @@ public class ButtonHandler : MonoBehaviour
         ButtonBack.transform.SetParent(Canvas.transform, false);
         ButtonBack.SetActive(false);
 
-        this.PlayerNotebook = notebook;
+        this.MyPlayer = MyPlayer;
     }
     /*
       Method called from GameController, checks if buttons have been clicked.  
@@ -54,6 +55,13 @@ public class ButtonHandler : MonoBehaviour
         if (ButtonSearch != null && ButtonIsClicked(ButtonSearch))
         {
             this.SetActionUI();
+            foreach (Button clueButton in Canvas.GetComponentsInChildren<Button>())
+            {
+                if (clueButton.name.Equals("BtnClue"))
+                {
+                    clueButton.enabled = true;
+                }
+            }
         }
         //Opens Inv Canvas and generated Buttons for items in inv
         if (ButtonIsClicked(ButtonNote))
@@ -61,14 +69,15 @@ public class ButtonHandler : MonoBehaviour
             this.SetActionUI();
             this.InvCanvas.enabled = true;
             int y = 180;
-            foreach (Clue item in this.PlayerNotebook.GetClues())
+            Debug.Log(MyPlayer.GetNotebook().GetClues()[0].GetName());
+            foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {
                 GameObject obj = Instantiate(BtnInv);
                 Vector2 pos = obj.transform.position;
                 pos.y = y;
                 obj.transform.position = pos;
                 obj.GetComponentInChildren<Text>().text = item.GetName();
-                obj.transform.SetParent(InvCanvas.transform, false);
+                obj.transform.SetParent(Canvas.transform, false);
                 Clues.Add(item, obj);
                 y -= 40;
             }
@@ -88,6 +97,13 @@ public class ButtonHandler : MonoBehaviour
             foreach (Clue item in this.Clues.Keys)
             {
                 Destroy(this.Clues[item]);
+            }
+            foreach (Button clueButton in Canvas.GetComponentsInChildren<Button>())
+            {
+                if (clueButton.name.Equals("BtnClue"))
+                {
+                    clueButton.enabled = true;
+                }
             }
             this.SetDefaultUI();
             this.InvCanvas.enabled = false;
