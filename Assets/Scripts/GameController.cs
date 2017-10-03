@@ -9,15 +9,16 @@ public class GameController : MonoBehaviour
     private string RoomName = "Entrance Hall";
     public Map GameMap;
     public Canvas Entrance, Lounge, Dining, Kitchen, Servants, Bedroom, Study, Library;
+    public GameObject PanelTextBox, Panel;
     Player MyPlayer;
     Room Location;
-
     // Use this for initialization
     void Start()
     {
         this.DisableCanvas();
         Entrance.enabled = true;
         GameMap.Createmap();
+        this.Panel.SetActive(false);
         Notebook PlayerNotebook = new Notebook();
         this.Location = GameMap.GetStartLocation();
         this.MyPlayer = new Player("TestDude", this.Location, PlayerNotebook);
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         this.Buttons.Clicked();
         Location = this.GameMap.Mapclick(Location);
         if (Location != null && !RoomName.Equals(Location.GetName()))
@@ -99,7 +101,15 @@ public class GameController : MonoBehaviour
         if (temp != null)
         {
             MyPlayer.GetNotebook().AddClue(temp);
+            this.Panel.SetActive(true);
+            this.PanelTextBox.GetComponent<Text>().text = name + " added to notebook";
+            StartCoroutine(ShowAndHide(Panel,2.0f));
         }
-
+    }
+    IEnumerator ShowAndHide(GameObject go, float delay)
+    {
+        go.SetActive(true);
+        yield return new WaitForSeconds(delay);
+        go.SetActive(false);
     }
 }

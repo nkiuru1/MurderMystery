@@ -47,6 +47,11 @@ public class Map : MonoBehaviour
         };
         Lobby.SetClues(temp);
         Lounge = new Room("Mansion_Lounge_2", "Lounge");
+        List<Clue> temp2 = new List<Clue>
+        {
+            new Clue("knife", "testKnife")
+        };
+        Lounge.SetClues(temp2);
         Servant = new Room("Mansion_Servant_Room", "Servant");
         Library = new Room("Mansion_Library", "Library");
         Kitchen = new Room("Mansion_Kitchen", "Kitchen");
