@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         this.DisableCanvas();
-        Entrance.enabled = true;
+        Dining.enabled = true;
         GameMap.Createmap();
         this.Panel.SetActive(false);
         Notebook PlayerNotebook = new Notebook();
