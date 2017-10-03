@@ -70,6 +70,7 @@ public class ButtonHandler : MonoBehaviour
             this.InvCanvas.enabled = true;
             int y = 180;
             Debug.Log(MyPlayer.GetNotebook().GetClues()[0].GetName());
+
             foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {
                 GameObject obj = Instantiate(BtnInv);
@@ -120,7 +121,7 @@ public class ButtonHandler : MonoBehaviour
     /*
         Resets UI back to default state  
     */
-    private void SetDefaultUI()
+    public void SetDefaultUI()
     {
         ButtonMap.SetActive(true);
         ButtonNote.SetActive(true);

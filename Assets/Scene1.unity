@@ -671,11 +671,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 379829022}
+      objectReference: {fileID: 1784438340}
     - target: {fileID: 114395940626950326, guid: c8f38e2ed50600d428d4e6505553b873,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: set_enabled
+      value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 114395940626950326, guid: c8f38e2ed50600d428d4e6505553b873,
         type: 2}
@@ -860,7 +860,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 262935691}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &262935691
@@ -1142,12 +1153,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
     type: 2}
   m_PrefabInternal: {fileID: 226602443}
---- !u!114 &379829022 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114395940626950326, guid: c8f38e2ed50600d428d4e6505553b873,
-    type: 2}
-  m_PrefabInternal: {fileID: 226602443}
-  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &438960096
 GameObject:
   m_ObjectHideFlags: 0
@@ -1540,7 +1545,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 559873915}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &559873915
@@ -1730,7 +1746,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 684845737}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &684845737
@@ -2305,7 +2332,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 902851948}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &902851948
@@ -3241,7 +3279,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1270867991}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1270867991
@@ -3826,7 +3875,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1549622080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1549622080
@@ -4010,7 +4070,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1658431758}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1658431758
@@ -4408,7 +4479,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1740276916}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1810190516}
+        m_MethodName: SetDefaultUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1740276916
@@ -4455,6 +4537,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 486d552b41b52a34787c513ae94fab2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1784438340 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1361779025003450, guid: c8f38e2ed50600d428d4e6505553b873,
+    type: 2}
+  m_PrefabInternal: {fileID: 226602443}
 --- !u!1 &1810190515
 GameObject:
   m_ObjectHideFlags: 0
