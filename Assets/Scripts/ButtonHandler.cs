@@ -27,6 +27,10 @@ public class ButtonHandler : MonoBehaviour
     /*
         Create Default UI Buttons and set-up Canvas
     */
+	/// <summary>
+	/// Creates the default buttons.
+	/// </summary>
+	/// <param name="MyPlayer">My player.</param>
     public void CreateDefaultButtons(Player MyPlayer)
     {
         this.mapCanvas.enabled = false;
@@ -69,7 +73,6 @@ public class ButtonHandler : MonoBehaviour
             this.SetActionUI();
             this.InvCanvas.enabled = true;
             int y = 180;
-            Debug.Log(MyPlayer.GetNotebook().GetClues()[0].GetName());
 
             foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {

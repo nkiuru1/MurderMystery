@@ -7,14 +7,12 @@ using UnityEngine.UI;
 
 public class Room
 {
-    private string Background;
     private string Name;
     private List<Clue> CluesInRoom;
     private List<Character> CharactersInRoom;
 
-    public Room(string background, string name)
+    public Room(string name)
     {
-        Background = background;
         this.Name = name;
         CluesInRoom = new List<Clue>();
         CharactersInRoom = new List<Character>();
@@ -23,11 +21,6 @@ public class Room
     public string GetName()
     {
         return this.Name;
-    }
-
-    public string GetBackground()
-    {
-        return this.Background;
     }
 
     public void SetClues(List<Clue> clues)
