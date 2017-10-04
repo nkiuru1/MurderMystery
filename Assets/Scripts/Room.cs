@@ -55,5 +55,10 @@ public class Room
             }
         }
     }
+
+    public List<Character> GetCharacters()
+    {
+        return this.CharactersInRoom;
+    }
 }
 

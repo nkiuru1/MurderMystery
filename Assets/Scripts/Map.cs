@@ -22,9 +22,18 @@ public class Map : MonoBehaviour
     Room Library;
     Room Servant;
     Room Current;
+    public Character TestChar;
+
     public void Createmap()
     {
         Lobby = new Room("Entrance Hall");
+        TestChar.SetTree("Prologue");
+        TestChar.SetData("TestCharacter", Lobby);
+        List<Character> roomChars = new List<Character>
+        {
+            TestChar
+        };
+        Lobby.SetCharacters(roomChars);
         List<Clue> temp = new List<Clue>
         {
             new Clue("test", "Testclue")

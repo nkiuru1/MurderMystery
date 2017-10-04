@@ -2,14 +2,19 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using UnityEngine;
 
-public class Player : Character
+public class Player : MonoBehaviour
 {
-    public Notebook PlayerNotebook;
+    private Notebook PlayerNotebook;
+    private string Name;
+    private Room Location;
 
-    public Player(string name, Room location, Notebook playerNotebook) : base(name,location)
+    public void SetData(string name, Room location, Notebook playerNotebook)
     {
         this.PlayerNotebook = playerNotebook;
+        this.Name = name;
+        this.Location = location;
     }
 
     public Notebook GetNotebook()

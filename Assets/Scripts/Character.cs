@@ -2,20 +2,54 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Character
+public class Character : MonoBehaviour
 {
     private string Name;
     private Room CurrentLocation;
+    public Dialogues CharacterDialogues;
 
-    public Character(string name, Room loc)
+    public void SetData(string name, Room loc)
     {
         this.Name = name;
         this.CurrentLocation = loc;
     }
+    public void SetTree(string treeName)
+    {
+        this.CharacterDialogues.SetTree(treeName);
+    }
 
+    public string[] GetChoices()
+    {
+        return this.CharacterDialogues.GetChoices();
+    }
+
+    public bool NextChoice(string response)
+    {
+        return this.CharacterDialogues.NextChoice(response);
+    }
+
+    public int Next()
+    {
+        return this.CharacterDialogues.Next();
+    }
+
+    public string GetDialogue()
+    {
+        return this.CharacterDialogues.GetCurrentDialogue();
+    }
     public Room GetLocation()
     {
         return this.CurrentLocation;
+    }
+
+    public void ResetConversation()
+    {
+        this.CharacterDialogues.Reset();
+    }
+
+    public bool IsEndOfConversation()
+    {
+        return this.CharacterDialogues.End();
     }
 
     public string GetName()
