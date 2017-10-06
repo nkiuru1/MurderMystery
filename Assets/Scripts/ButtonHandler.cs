@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 public class ButtonHandler : MonoBehaviour
 {
     public GameObject BtnSearch, BtnNote, BtnMap, BtnTalk, BtnBack, BtnInv, BtnChoice, Canvas;
-    public Text DescriptionText, DialogText;
+    public Text DescriptionText, DialogText, CharacterNameText, CharactersInRoomText;
     public Canvas mapCanvas, InvCanvas, TalkCanvas;
     public Turn Turn;
     private Character CharacterTalk;
@@ -19,6 +19,7 @@ public class ButtonHandler : MonoBehaviour
     private Dictionary<Clue, GameObject> Clues = new Dictionary<Clue, GameObject>();
     private List<GameObject> Choices = new List<GameObject>();
     private List<GameObject> ClueButtons = new List<GameObject>();
+    private List<Character> CharactersInRoom;
 
     /// <summary>
 	/// Calls PointerController and returns true if button is clicked
@@ -54,7 +55,7 @@ public class ButtonHandler : MonoBehaviour
 
         foreach (Button clueButton in Canvas.GetComponentsInChildren<Button>())
         {
-            if (clueButton.name.Equals("BtnClue"))
+            if (clueButton.name.Contains("BtnC"))
             {
                 this.ClueButtons.Add(clueButton.transform.gameObject);
                 clueButton.transform.gameObject.SetActive(false);
@@ -66,7 +67,7 @@ public class ButtonHandler : MonoBehaviour
     /// </summary>
     public void Clicked()
     {
-        //Activates the clues in all rooms
+        //Activates the clues in all rooms once the search button is clicked.
         if (ButtonSearch != null && ButtonIsClicked(ButtonSearch))
         {
             this.SetActionUI();
@@ -75,12 +76,12 @@ public class ButtonHandler : MonoBehaviour
                 clueButton.SetActive(true);
             }
         }
-        //Opens Inv Canvas and generated Buttons for items in inv
+        //Opens Inv Canvas and generated Buttons for items in inv.
         if (ButtonIsClicked(ButtonNote))
         {
             this.SetActionUI();
             this.InvCanvas.enabled = true;
-            int y = 180;
+            int y = 160;
 
             foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {
@@ -105,23 +106,28 @@ public class ButtonHandler : MonoBehaviour
         {
             this.SetActionUI();
             this.TalkCanvas.enabled = true;
-            this.CharacterTalk = this.CurrentRoom.GetCharacters()[0];
-            this.UpdateChoices();
+            this.CharactersInRoom = this.CurrentRoom.GetCharacters();
+            int y = 160;
+            if (CharactersInRoom.Count > 1)
+            {
+                this.CharactersInRoomText.text = "Characters you can talk to:";
+                foreach (Character character in CharactersInRoom)
+                {
+                    this.GenerateChoice(y, character.GetName());
+                    y -= 40;
+                }
+            }
+            else if (this.CharactersInRoom != null && this.CharactersInRoom.Count == 1)
+            {
+                CharacterTalk = this.CharactersInRoom[0];
+                this.GenerateChoice(y, CharacterTalk.GetName());
+            }
+            this.CharacterNameText.text = "";
         }
         //Disables other canvases, destroys all item buttons and sets Default UI
         if (ButtonBack != null && ButtonIsClicked(ButtonBack))
         {
-            foreach (Clue item in this.Clues.Keys)
-            {
-                Destroy(this.Clues[item]);
-            }
-
-            foreach (GameObject clueButton in this.ClueButtons)
-            {
-                clueButton.SetActive(false);
-            }
             this.SetDefaultUI();
-            this.CharacterTalk.ResetConversation();
         }
 
         //Checks if  an inventory button has been clicked
@@ -135,67 +141,91 @@ public class ButtonHandler : MonoBehaviour
                 }
             }
         }
-
         if (this.TalkCanvas.enabled)
         {
-            bool clicked = false;
-            foreach (GameObject item in this.Choices)
-            {
-                if (ButtonIsClicked(item))
-                {
-                    clicked = true;
-                    if (!this.CharacterTalk.NextChoice(item.GetComponentInChildren<Text>().text))
-                    {
-                        this.CharacterTalk.Next();
-                    }
-                }
-            }
-            if (clicked)
-            {
-                this.UpdateChoices();
-            }
+            this.ProgressInDialogue();
         }
     }
     /// <summary>
-    /// Updates choices and the dialogue text
+    /// Goes through the choices.
+    /// If there is a character to talk to & the choice is available it asks for the next node 
+    /// from the character dialogue tree.
+    /// If there is no character to talk to, the choices are the characters and it sets the character
+    /// that you want to talk to.
+    /// If the choice is not the end node, it generates the next choices.
+    /// </summary>
+    private void ProgressInDialogue()
+    {
+        bool clicked = false;
+        foreach (GameObject item in this.Choices)
+        {
+            if (item != null && this.CharacterTalk != null && ButtonIsClicked(item))
+            {
+                clicked = true;
+                if (!this.CharacterTalk.NextChoice(item.GetComponentInChildren<Text>().text))
+                {
+                    this.CharacterTalk.Next();
+                }
+                if (item.GetComponentInChildren<Text>().text.Equals("Goodbye"))
+                {
+                    this.SetDefaultUI();
+                    clicked = false;
+                }
+            }
+            else if (this.CharacterTalk == null && item != null)
+            {
+                if (ButtonIsClicked(item))
+                {
+                    foreach (Character character in this.CharactersInRoom)
+                    {
+                        if (character.GetName().Equals(item.GetComponentInChildren<Text>().text))
+                        {
+                            this.CharacterTalk = character;
+                            clicked = true;
+                        }
+                    }
+                }
+            }
+        }
+        if (clicked) this.UpdateChoices();
+    }
+    /// <summary>
+    /// Updates choices and the dialogue text.
+    /// Destroys past answer choices.
+    /// If there is only 1 choice, it only displays button with "next".
+    /// If end of conversation, displays button with "back".
     /// </summary>
     private void UpdateChoices()
     {
         foreach (GameObject choice in this.Choices)
         {
-            choice.SetActive(false);
+            Destroy(choice);
         }
         string[] choices = this.CharacterTalk.GetChoices();
-        int y = 180;
+        int y = 160;
 
         if (choices.Length != 0)
         {
             foreach (string choice in choices)
             {
-                GameObject obj = Instantiate(BtnChoice);
-                Vector2 pos = obj.transform.position;
-                pos.y = y;
-                obj.transform.position = pos;
-                obj.GetComponentInChildren<Text>().text = choice;
-                obj.transform.SetParent(Canvas.transform, false);
-                this.Choices.Add(obj);
+                this.GenerateChoice(y, choice);
                 y -= 40;
             }
         }
         else if (!this.CharacterTalk.IsEndOfConversation())
         {
-            GameObject obj = Instantiate(BtnChoice);
-            Vector2 pos = obj.transform.position;
-            pos.y = y;
-            obj.transform.position = pos;
-            obj.GetComponentInChildren<Text>().text = "Next";
-            obj.transform.SetParent(Canvas.transform, false);
-            this.Choices.Add(obj);
+            this.GenerateChoice(y, "Next");
         }
+        else
+        {
+            this.GenerateChoice(y, "Goodbye");
+        }
+        this.CharactersInRoomText.text = "";
         this.DialogText.text = this.CharacterTalk.GetDialogue();
     }
     /// <summary>
-    /// Resets UI back to default state  
+    /// Resets UI back to default state, by disabling all other canvases, except for the parent canvas.
+    /// Clears the list of clues, & the description text box.
     /// </summary>
     public void SetDefaultUI()
     {
@@ -206,10 +236,38 @@ public class ButtonHandler : MonoBehaviour
 
         ButtonBack.SetActive(false);
 
+        foreach (GameObject choice in this.Choices)
+        {
+            Destroy(choice);
+        }
+
+        foreach (Clue item in this.Clues.Keys)
+        {
+            Destroy(this.Clues[item]);
+        }
+
+        foreach (GameObject clueButton in this.ClueButtons)
+        {
+            clueButton.SetActive(false);
+        }
+
         this.mapCanvas.enabled = false;
         this.TalkCanvas.enabled = false;
+        this.InvCanvas.enabled = false;
         this.Clues.Clear();
         this.DescriptionText.text = "";
+        if (this.CharacterTalk != null)
+        {
+            this.CharacterTalk.ResetConversation();
+            this.CharacterTalk.Talked();
+            if (MyPlayer.GetNotebook().GetClue(this.CharacterTalk.GetName()) != null)
+            {
+                //Add the player clue
+            }
+            this.CharacterTalk = null;
+        }
+        this.DialogText.text = "";
+
     }
     /// <summary>
     /// Disables all buttons except the back button. Called when any UI button is clicked.
@@ -226,5 +284,16 @@ public class ButtonHandler : MonoBehaviour
     public void UpdateRoom(Room currentRoom)
     {
         this.CurrentRoom = currentRoom;
+    }
+
+    private void GenerateChoice(int y, string buttonText)
+    {
+        GameObject obj = Instantiate(BtnChoice);
+        Vector2 pos = obj.transform.position;
+        pos.y = y;
+        obj.transform.position = pos;
+        obj.GetComponentInChildren<Text>().text = buttonText;
+        obj.transform.SetParent(Canvas.transform, false);
+        this.Choices.Add(obj);
     }
 }

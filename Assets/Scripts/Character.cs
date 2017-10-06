@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
     private string Name;
     private Room CurrentLocation;
     public Dialogues CharacterDialogues;
+    private bool TalkedTo = false;
 
     public void SetData(string name, Room loc)
     {
@@ -60,6 +61,16 @@ public class Character : MonoBehaviour
     public void ChangeLocation(Room room)
     {
         this.CurrentLocation = room;
+    }
+
+    public bool HasTalkedTo()
+    {
+        return TalkedTo;
+    }
+
+    public void Talked()
+    {
+        TalkedTo = true;
     }
 }
 

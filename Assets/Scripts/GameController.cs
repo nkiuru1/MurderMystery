@@ -13,10 +13,12 @@ public class GameController : MonoBehaviour
     public Turn Turn;
     private string RoomName = "Entrance Hall";
     public Player MyPlayer;
+    public Character Butler, Noble;
     private Room Location;
 
     /// <summary>
-    /// Initializes all objects and sets the starting location to the Entrance
+    /// Initializes all objects and sets the starting location to the Entrance.
+    /// Dont't Even try to change the start location. It will NOT work.
     /// </summary>
     void Start()
     {
@@ -28,18 +30,21 @@ public class GameController : MonoBehaviour
         Notebook PlayerNotebook = new Notebook();
         this.MyPlayer.SetData("TestDude", this.Location, PlayerNotebook);
         this.Buttons.CreateDefaultButtons(MyPlayer);
+        this.LocationText.text = this.RoomName;
+        this.TurnText.text = (30 - Turn.GetTurn()).ToString();
     }
 
     /// <summary>
     /// Calls ButtonHandler's clicked method to check if any UI buttons are clicked.
-    ///Calls Map's Mapclick method with the current location and it returns a new location if a map button is clicked.
+    /// Calls Map's Mapclick method with the current location and it returns a new location if a map button is clicked.
+    /// Enables the canvas that has been selected from the map.
     /// Sets the LocationText to the name of the current room.
     /// </summary>
     void Update()
     {
         this.Buttons.Clicked();
-        this.Buttons.UpdateRoom(Location);
         Location = this.GameMap.Mapclick(Location);
+        this.Buttons.UpdateRoom(Location);
         if (!RoomName.Equals(Location.GetName()))
         {
             if (Location.GetName().Equals("Entrance Hall"))
@@ -98,8 +103,10 @@ public class GameController : MonoBehaviour
                 Study.enabled = true;
                 Turn.NextTurn();
             }
+            this.TurnAction();
+            this.LocationText.text = this.RoomName;
+            this.TurnText.text = (20 - Turn.GetTurn()).ToString();
         }
-        this.LocationText.text = this.RoomName;
     }
     /// <summary>
     /// Disables other canvases
@@ -130,11 +137,26 @@ public class GameController : MonoBehaviour
             this.PanelTextBox.GetComponent<Text>().text = name + " added to notebook";
             StartCoroutine(ShowAndHide(Panel, 2.0f));
         }
+
+        Location.DestroyClue(name);
     }
     IEnumerator ShowAndHide(GameObject go, float delay)
     {
         go.SetActive(true);
         yield return new WaitForSeconds(delay);
         go.SetActive(false);
+    }
+
+    /// <summary>
+    /// Makes changes in the game world when turn has changed.
+    /// </summary>
+    public void TurnAction()
+    {
+        // test code
+        // move character to Lounge on turn 3
+        if (Turn.GetTurn().Equals(3))
+        {
+            GameMap.TransportCharacter(Noble, GameMap.GetRoomObject("Lounge"));
+        }
     }
 }

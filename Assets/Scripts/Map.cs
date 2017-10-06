@@ -22,16 +22,19 @@ public class Map : MonoBehaviour
     Room Library;
     Room Servant;
     Room Current;
-    public Character TestChar;
+    public Character Butler;
+    public Character Noble;
 
     public void Createmap()
     {
         Lobby = new Room("Entrance Hall");
-        TestChar.SetTree("Prologue");
-        TestChar.SetData("TestCharacter", Lobby);
+        Butler.SetTree("Prologue");
+        Butler.SetData("Butler", Lobby);
+        Noble.SetTree("TestCharacter");
+        Noble.SetData("Noble", Lobby);
         List<Character> roomChars = new List<Character>
         {
-            TestChar
+            Butler, Noble
         };
         Lobby.SetCharacters(roomChars);
         List<Clue> temp = new List<Clue>
@@ -50,6 +53,11 @@ public class Map : MonoBehaviour
         Kitchen = new Room("Kitchen");
         Bed = new Room("Bed");
         Dinner = new Room("Dining Room");
+        List<Clue> temp3 = new List<Clue>
+        {
+            new Clue("Wine Glass", "This is a Wine glass")
+        };
+        Dinner.SetClues(temp3);
         Study = new Room("Study");
         Current = new Room(null);
 
@@ -108,5 +116,25 @@ public class Map : MonoBehaviour
     public Room GetStartLocation()
     {
         return this.Lobby;
+    }
+
+    public Room GetRoomObject(string name)
+    {
+        if (name.Equals("Lobby")) return Lobby;
+        if (name.Equals("Dinner")) return Dinner;
+        if (name.Equals("Kitchen")) return Lobby;
+        if (name.Equals("Lounge")) return Lounge;
+        if (name.Equals("Bed")) return Bed;
+        if (name.Equals("Study")) return Study;
+        if (name.Equals("Library")) return Library;
+        if (name.Equals("Servant")) return Servant;
+        return null;
+    }
+
+    public void TransportCharacter(Character Person, Room TargetRoom)
+    {
+        Person.GetLocation().RemoveCharacter(Person.GetName());
+        TargetRoom.BringCharacterIntoThisRoom(Person);
+        Person.ChangeLocation(TargetRoom);
     }
 }

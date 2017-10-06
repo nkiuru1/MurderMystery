@@ -40,6 +40,16 @@ public class Room
         return null;
     }
 
+	public void DestroyClue(string name) {
+		foreach (Clue item in this.CluesInRoom.ToList())
+		{
+			if (item.GetName().Equals(name))
+			{
+				CluesInRoom.Remove(item);
+			}
+		}
+	}
+
     public void SetCharacters(List<Character> characters)
     {
         this.CharactersInRoom = characters;
@@ -47,7 +57,7 @@ public class Room
 
     public void RemoveCharacter(string name)
     {
-        foreach (Character npc in this.CharactersInRoom)
+        foreach (Character npc in this.CharactersInRoom.ToList())
         {
             if (npc.GetName().Equals(name))
             {
@@ -55,6 +65,11 @@ public class Room
             }
         }
     }
+
+	public void BringCharacterIntoThisRoom(Character Person)
+	{
+		CharactersInRoom.Add(Person);
+	}
 
     public List<Character> GetCharacters()
     {

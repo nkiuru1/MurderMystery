@@ -14,7 +14,6 @@ public class PointerController : MonoBehaviour, IPointerDownHandler, IPointerUpH
 	public void OnPointerUp(PointerEventData eventData) {
 		PointerDown = false;
 	}
-
 	public bool GetPointerDown() {
         if (PointerDown)
         {
