@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
@@ -147,6 +148,18 @@ public class GameController : MonoBehaviour
         go.SetActive(false);
     }
 
+	/// <summary>
+	/// Handles character clicks.
+	/// </summary>
+	public void CharacterClicked(string name)
+	{
+		// Handle character clicks only in talk mode
+		if (Buttons.GetTalkActive())
+		{
+			Debug.Log("Character clicked: " + name);
+		}
+	}
+
     /// <summary>
     /// Makes changes in the game world when turn has changed.
     /// </summary>
@@ -154,9 +167,13 @@ public class GameController : MonoBehaviour
     {
         // test code
         // move character to Lounge on turn 3
-        if (Turn.GetTurn().Equals(3))
+        if (Turn.GetTurn() == 3)
         {
             GameMap.TransportCharacter(Noble, GameMap.GetRoomObject("Lounge"));
+        }
+        if(Turn.GetTurn() == 5)
+        {
+            SceneManager.LoadScene(3);
         }
     }
 }

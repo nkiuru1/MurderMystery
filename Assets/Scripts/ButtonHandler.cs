@@ -20,6 +20,7 @@ public class ButtonHandler : MonoBehaviour
     private List<GameObject> Choices = new List<GameObject>();
     private List<GameObject> ClueButtons = new List<GameObject>();
     private List<Character> CharactersInRoom;
+	private bool Talking = false;
 
     /// <summary>
 	/// Calls PointerController and returns true if button is clicked
@@ -105,6 +106,7 @@ public class ButtonHandler : MonoBehaviour
         if (ButtonTalk != null && ButtonIsClicked(ButtonTalk))
         {
             this.SetActionUI();
+			this.Talking = true;
             this.TalkCanvas.enabled = true;
             this.CharactersInRoom = this.CurrentRoom.GetCharacters();
             int y = 160;
@@ -268,6 +270,7 @@ public class ButtonHandler : MonoBehaviour
         }
         this.DialogText.text = "";
 
+		this.Talking = false;
     }
     /// <summary>
     /// Disables all buttons except the back button. Called when any UI button is clicked.
@@ -279,6 +282,8 @@ public class ButtonHandler : MonoBehaviour
         ButtonSearch.SetActive(false);
         ButtonTalk.SetActive(false);
         ButtonBack.SetActive(true);
+
+		this.Talking = false; // enabled later in Clicked() when in talk mode
     }
 
     public void UpdateRoom(Room currentRoom)
@@ -296,4 +301,13 @@ public class ButtonHandler : MonoBehaviour
         obj.transform.SetParent(Canvas.transform, false);
         this.Choices.Add(obj);
     }
+
+	/// <summary>
+	/// GameController can query if we are in talk mode.
+	/// </summary>
+	/// <returns>True or false.</returns>
+	public bool GetTalkActive()
+	{
+		return Talking;
+	}
 }
