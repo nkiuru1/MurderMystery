@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     public Text LocationText, TurnText;
     public Turn Turn;
     private string RoomName = "Entrance Hall";
+    private Canvas CurrentCanvas;
     public Player MyPlayer;
     public Character Butler, Noble;
     private Room Location;
@@ -25,6 +26,7 @@ public class GameController : MonoBehaviour
     {
         this.DisableCanvas();
         this.Entrance.enabled = true;
+        this.CurrentCanvas = Entrance;
         GameMap.Createmap();
         this.Location = GameMap.GetStartLocation();
         this.Panel.SetActive(false);
@@ -45,7 +47,6 @@ public class GameController : MonoBehaviour
     {
         this.Buttons.Clicked();
         Location = this.GameMap.Mapclick(Location);
-        this.Buttons.UpdateRoom(Location);
         if (!RoomName.Equals(Location.GetName()))
         {
             if (Location.GetName().Equals("Entrance Hall"))
@@ -53,6 +54,7 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Entrance Hall";
                 this.DisableCanvas();
                 Entrance.enabled = true;
+                CurrentCanvas = Entrance;
                 Turn.NextTurn();
             }
             if (Location.GetName().Equals("Lounge"))
@@ -60,6 +62,7 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Lounge";
                 this.DisableCanvas();
                 Lounge.enabled = true;
+                CurrentCanvas = Lounge;
                 Turn.NextTurn();
             }
             if (Location.GetName().Equals("Servant"))
@@ -67,6 +70,7 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Servant";
                 this.DisableCanvas();
                 Servants.enabled = true;
+                CurrentCanvas = Servants;
                 Turn.NextTurn();
             }
             if (Location.GetName().Equals("Library"))
@@ -74,6 +78,7 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Library";
                 this.DisableCanvas();
                 Library.enabled = true;
+                CurrentCanvas = Library;
                 Turn.NextTurn();
             }
             if (Location.GetName().Equals("Kitchen"))
@@ -81,6 +86,7 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Kitchen";
                 this.DisableCanvas();
                 Kitchen.enabled = true;
+                CurrentCanvas = Kitchen;
                 Turn.NextTurn();
             }
             if (Location.GetName().Equals("Bed"))
@@ -88,6 +94,7 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Bed";
                 this.DisableCanvas();
                 Bedroom.enabled = true;
+                CurrentCanvas = Bedroom;
                 Turn.NextTurn();
             }
             if (Location.GetName().Equals("Dining Room"))
@@ -95,6 +102,7 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Dining Room";
                 this.DisableCanvas();
                 Dining.enabled = true;
+                CurrentCanvas = Dining;
                 Turn.NextTurn();
             }
             if (Location.GetName().Equals("Study"))
@@ -102,12 +110,14 @@ public class GameController : MonoBehaviour
                 this.RoomName = "Study";
                 this.DisableCanvas();
                 Study.enabled = true;
+                CurrentCanvas = Study;
                 Turn.NextTurn();
             }
             this.TurnAction();
             this.LocationText.text = this.RoomName;
-            this.TurnText.text = (20 - Turn.GetTurn()).ToString();
+            this.TurnText.text = (30 - Turn.GetTurn()).ToString();
         }
+        this.Buttons.UpdateRoom(Location, CurrentCanvas);
     }
     /// <summary>
     /// Disables other canvases
@@ -171,7 +181,7 @@ public class GameController : MonoBehaviour
         {
             GameMap.TransportCharacter(Noble, GameMap.GetRoomObject("Lounge"));
         }
-        if(Turn.GetTurn() == 5)
+        if(Turn.GetTurn() == 30)
         {
             SceneManager.LoadScene(3);
         }

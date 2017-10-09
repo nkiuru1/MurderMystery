@@ -19,8 +19,9 @@ public class ButtonHandler : MonoBehaviour
     private Dictionary<Clue, GameObject> Clues = new Dictionary<Clue, GameObject>();
     private List<GameObject> Choices = new List<GameObject>();
     private List<GameObject> ClueButtons = new List<GameObject>();
+    private Dictionary<Canvas, List<Button>> Silouettes = new Dictionary<Canvas, List<Button>>();
     private List<Character> CharactersInRoom;
-	private bool Talking = false;
+    private bool Talking = false;
 
     /// <summary>
 	/// Calls PointerController and returns true if button is clicked
@@ -51,6 +52,7 @@ public class ButtonHandler : MonoBehaviour
         ButtonBack = Instantiate(BtnBack);
         ButtonBack.transform.SetParent(Canvas.transform, false);
         ButtonBack.SetActive(false);
+        //this.DisableNPCs();
 
         this.MyPlayer = MyPlayer;
 
@@ -106,7 +108,7 @@ public class ButtonHandler : MonoBehaviour
         if (ButtonTalk != null && ButtonIsClicked(ButtonTalk))
         {
             this.SetActionUI();
-			this.Talking = true;
+            this.Talking = true;
             this.TalkCanvas.enabled = true;
             this.CharactersInRoom = this.CurrentRoom.GetCharacters();
             int y = 160;
@@ -270,7 +272,7 @@ public class ButtonHandler : MonoBehaviour
         }
         this.DialogText.text = "";
 
-		this.Talking = false;
+        this.Talking = false;
     }
     /// <summary>
     /// Disables all buttons except the back button. Called when any UI button is clicked.
@@ -283,12 +285,43 @@ public class ButtonHandler : MonoBehaviour
         ButtonTalk.SetActive(false);
         ButtonBack.SetActive(true);
 
-		this.Talking = false; // enabled later in Clicked() when in talk mode
+        this.Talking = false; // enabled later in Clicked() when in talk mode
     }
-
-    public void UpdateRoom(Room currentRoom)
+    /// <summary>
+    /// Takes the current room & canvas from GC.
+    /// Updates the number of characters in the room based on that.
+    /// </summary>
+    /// <param name="currentRoom"></param>
+    /// <param name="currentCanvas"></param>
+    public void UpdateRoom(Room currentRoom, Canvas currentCanvas)
     {
-        this.CurrentRoom = currentRoom;
+        if (this.CurrentRoom != currentRoom)
+        {
+            this.CurrentRoom = currentRoom;
+
+            if (!this.Silouettes.ContainsKey(currentCanvas))
+            {
+                List<Button> temp = new List<Button>();
+                foreach (Button btn in currentCanvas.GetComponentsInChildren<Button>())
+                {
+                    if (btn.name.Contains("BtnP"))
+                    {
+                        btn.gameObject.SetActive(false);
+                        temp.Add(btn);
+                    }
+                }
+                this.Silouettes.Add(currentCanvas, temp);
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                this.Silouettes[currentCanvas][i].gameObject.SetActive(false);
+            }
+
+            for (int i = 0; i < this.CurrentRoom.GetCharacters().Count; i++)
+            {
+                this.Silouettes[currentCanvas][i].gameObject.SetActive(true);
+            }
+        }
     }
 
     private void GenerateChoice(int y, string buttonText)
@@ -302,12 +335,12 @@ public class ButtonHandler : MonoBehaviour
         this.Choices.Add(obj);
     }
 
-	/// <summary>
-	/// GameController can query if we are in talk mode.
-	/// </summary>
-	/// <returns>True or false.</returns>
-	public bool GetTalkActive()
-	{
-		return Talking;
-	}
+    /// <summary>
+    /// GameController can query if we are in talk mode.
+    /// </summary>
+    /// <returns>True or false.</returns>
+    public bool GetTalkActive()
+    {
+        return Talking;
+    }
 }
