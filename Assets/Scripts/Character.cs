@@ -8,6 +8,7 @@ public class Character : MonoBehaviour
     private Room CurrentLocation;
     public Dialogues CharacterDialogues;
     private bool TalkedTo = false;
+    private Clue CharacterClue;
 
     public void SetData(string name, Room loc)
     {
@@ -19,6 +20,15 @@ public class Character : MonoBehaviour
         this.CharacterDialogues.SetTree(treeName);
     }
 
+    public void SetClue(Clue clue)
+    {
+        this.CharacterClue = clue;
+    }
+
+    public Clue GetClue()
+    {
+        return this.CharacterClue;
+    }
     public string[] GetChoices()
     {
         return this.CharacterDialogues.GetChoices();

@@ -12,6 +12,7 @@ public class ButtonHandler : MonoBehaviour
     public Text DescriptionText, DialogText, CharacterNameText, CharactersInRoomText;
     public Canvas mapCanvas, InvCanvas, TalkCanvas;
     public Turn Turn;
+    public Transform ContentPanel;
     private Character CharacterTalk;
     private GameObject ButtonSearch, ButtonNote, ButtonMap, ButtonTalk, ButtonBack;
     private Player MyPlayer;
@@ -84,7 +85,7 @@ public class ButtonHandler : MonoBehaviour
         {
             this.SetActionUI();
             this.InvCanvas.enabled = true;
-            int y = 160;
+            int y = 530;
 
             foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {
@@ -93,7 +94,7 @@ public class ButtonHandler : MonoBehaviour
                 pos.y = y;
                 obj.transform.position = pos;
                 obj.GetComponentInChildren<Text>().text = item.GetName();
-                obj.transform.SetParent(Canvas.transform, false);
+                obj.transform.SetParent(ContentPanel, false);
                 Clues.Add(item, obj);
                 y -= 40;
             }
@@ -264,9 +265,9 @@ public class ButtonHandler : MonoBehaviour
         {
             this.CharacterTalk.ResetConversation();
             this.CharacterTalk.Talked();
-            if (MyPlayer.GetNotebook().GetClue(this.CharacterTalk.GetName()) != null)
+            if (MyPlayer.GetNotebook().GetClue(this.CharacterTalk.GetName()) == null)
             {
-                //Add the player clue
+                MyPlayer.GetNotebook().AddClue(this.CharacterTalk.GetClue());
             }
             this.CharacterTalk = null;
         }
