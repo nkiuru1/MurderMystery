@@ -22,7 +22,7 @@ public class Map : MonoBehaviour
     Room Library;
     Room Servant;
     Room Current;
-    public Character Butler, Count, Chef, Maid, Businessman, Nobleman, Reporter, Doctor, Writer, Constable;
+    public Character Butler, Count, Chef, Maid, Businessman, Nobleman, Reporter, Doctor, Writer, Constable, Narrator;
 
     public void Createmap()
     {
@@ -54,15 +54,17 @@ public class Map : MonoBehaviour
         Butler.SetData("Butler", Lobby);
         Chef.SetData("Chef", Kitchen);
         Maid.SetData("Maid", Kitchen);
-        Businessman.SetData("Businessman", Dinner);
-        Nobleman.SetData("Nobleman", Dinner);
+        Businessman.SetData("Businessman", null);
+        Nobleman.SetData("Nobleman", null);
         Reporter.SetData("Reporter", Lobby);
-        Doctor.SetData("Doctor", Dinner);
+        Doctor.SetData("Doctor", null);
         Writer.SetData("Writer", Library);
         Constable.SetData("Constable", null);
+        Narrator.SetData("Narrator", null);
 
         Butler.SetTree("Prologue");
-        Count.SetTree("TestCharacter");
+        Narrator.SetTree("NarratorDinner");
+
 
         Count.SetClue(new Clue("Count", "A count whose life has been filled with one scandal after another." +
             " Perhaps after tonight there will be another mark on the list?"));
@@ -86,9 +88,14 @@ public class Map : MonoBehaviour
 
         List<Character> roomChars = new List<Character>
         {
-            Butler, Count
+            Butler
         };
         Lobby.SetCharacters(roomChars);
+        List<Character> dinnerChars = new List<Character>
+        {
+            Narrator
+        };
+        Dinner.SetCharacters(dinnerChars);
 
     }
     private void GenerateClues()

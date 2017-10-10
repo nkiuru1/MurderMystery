@@ -152,8 +152,7 @@ public class ButtonHandler : MonoBehaviour
         }
         else if (this.CharactersInRoom != null && this.CharactersInRoom.Count == 1)
         {
-            CharacterTalk = this.CharactersInRoom[0];
-            this.GenerateChoice(y, CharacterTalk.GetName());
+            this.GenerateChoice(y, CharactersInRoom[0].GetName());
         }
         this.CharacterNameText.text = "";
     }
@@ -175,6 +174,7 @@ public class ButtonHandler : MonoBehaviour
                 clicked = true;
                 if (!this.CharacterTalk.NextChoice(item.GetComponentInChildren<Text>().text))
                 {
+                    Debug.Log("nope");
                     this.CharacterTalk.Next();
                 }
                 if (item.GetComponentInChildren<Text>().text.Equals("Goodbye"))
@@ -191,6 +191,7 @@ public class ButtonHandler : MonoBehaviour
                     {
                         if (character.GetName().Equals(item.GetComponentInChildren<Text>().text))
                         {
+                            Debug.Log("nuasd");
                             this.CharacterTalk = character;
                             clicked = true;
                         }
@@ -275,8 +276,8 @@ public class ButtonHandler : MonoBehaviour
             {
                 MyPlayer.GetNotebook().AddClue(this.CharacterTalk.GetClue());
             }
-            this.CharacterTalk = null;
         }
+        this.CharacterTalk = null;
         this.DialogText.text = "";
 
         this.Talking = false;
@@ -352,6 +353,11 @@ public class ButtonHandler : MonoBehaviour
     }
 
     public void GameStart()
+    {
+        this.TalkAction();
+    }
+
+    public void DiningRoomAction()
     {
         this.TalkAction();
     }

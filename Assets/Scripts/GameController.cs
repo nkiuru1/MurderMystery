@@ -12,10 +12,10 @@ public class GameController : MonoBehaviour
     public GameObject PanelTextBox, Panel;
     public Text LocationText, TurnText;
     public Turn Turn;
+    public Player MyPlayer;
+    public Character Butler, Count, Chef, Maid, Businessman, Nobleman, Reporter, Doctor, Writer, Constable, Narrator;
     private string RoomName = "Entrance Hall";
     private Canvas CurrentCanvas;
-    public Player MyPlayer;
-    public Character Butler, Noble;
     private Room Location;
 
     /// <summary>
@@ -31,11 +31,11 @@ public class GameController : MonoBehaviour
         this.Location = GameMap.GetStartLocation();
         this.Panel.SetActive(false);
         Notebook PlayerNotebook = new Notebook();
-        this.MyPlayer.SetData("TestDude", this.Location, PlayerNotebook);
+        this.MyPlayer.SetData(PlayerNotebook);
         this.Buttons.CreateDefaultButtons(MyPlayer);
         this.LocationText.text = this.RoomName;
         this.TurnText.text = (30 - Turn.GetTurn()).ToString();
-        this.Buttons.UpdateRoom(this.Location,this.CurrentCanvas);
+        this.Buttons.UpdateRoom(this.Location, this.CurrentCanvas);
         this.Buttons.GameStart();
     }
 
@@ -171,13 +171,18 @@ public class GameController : MonoBehaviour
             Debug.Log("Character clicked: " + name);
         }
     }
-
+    /// <summary>
+    /// Checks if the player can move to that room, based on turn 
+    /// </summary>
+    /// <param name="nextRoom"></param>
+    /// <returns>bool that states if the player can move there</returns>
     private bool CanMoveTo(Room nextRoom)
     {
         if (Turn.GetTurn() == 0 && nextRoom != this.GameMap.GetRoomObject("Dinner"))
         {
             this.Panel.SetActive(true);
-            this.PanelTextBox.GetComponent<Text>().text = "I should probably go to the dining room instead";
+            this.PanelTextBox.GetComponent<Text>().text = "You’re here for a dinner party, not an investigation. " +
+                "You should follow the butler and go to the dining room";
             StartCoroutine(ShowAndHide(Panel, 2.0f));
             return false;
         }
@@ -188,11 +193,15 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void TurnAction()
     {
+        if (Turn.GetTurn() == 1)
+        {
+            this.Buttons.DiningRoomAction();
+        }
         // test code
         // move character to Lounge on turn 3
         if (Turn.GetTurn() == 3)
         {
-            GameMap.TransportCharacter(Noble, GameMap.GetRoomObject("Lounge"));
+            GameMap.TransportCharacter(Nobleman, GameMap.GetRoomObject("Lounge"));
         }
         if (Turn.GetTurn() == 30)
         {

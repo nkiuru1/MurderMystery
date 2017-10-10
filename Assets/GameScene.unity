@@ -312,166 +312,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &36369995
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 36369997}
-  - component: {fileID: 36369996}
-  m_Layer: 0
-  m_Name: DialogueSystem
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &36369996
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 36369995}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Set:
-  - CurrentId: 36
-    NewWindowOpen: 0
-    FirstWindow:
-      ID: 29
-      Size:
-        serializedVersion: 2
-        x: 38
-        y: 180
-        width: 150
-        height: 125
-      Text: Some Text
-      Type: 1
-      NodeType: 0
-      Parent: -1
-      Trigger: 0
-      TriggerText: 
-      Connections: 1f00000020000000
-    Windows:
-    - ID: 29
-      Size:
-        serializedVersion: 2
-        x: 38
-        y: 180
-        width: 150
-        height: 125
-      Text: Some Text
-      Type: 1
-      NodeType: 0
-      Parent: -1
-      Trigger: 0
-      TriggerText: 
-      Connections: 1f00000020000000
-    - ID: 30
-      Size:
-        serializedVersion: 2
-        x: 550
-        y: 104
-        width: 150
-        height: 125
-      Text: You Said No
-      Type: 0
-      NodeType: 2
-      Parent: 29
-      Trigger: 0
-      TriggerText: 
-      Connections: 
-    - ID: 31
-      Size:
-        serializedVersion: 2
-        x: 183
-        y: 51
-        width: 150
-        height: 125
-      Text: No
-      Type: 2
-      NodeType: 1
-      Parent: 29
-      Trigger: 0
-      TriggerText: 
-      Connections: 23000000
-    - ID: 32
-      Size:
-        serializedVersion: 2
-        x: 133
-        y: 351
-        width: 150
-        height: 125
-      Text: Yes
-      Type: 2
-      NodeType: 1
-      Parent: 29
-      Trigger: 0
-      TriggerText: 
-      Connections: 22000000
-    - ID: 33
-      Size:
-        serializedVersion: 2
-        x: 563
-        y: 359
-        width: 150
-        height: 125
-      Text: You Said Yes
-      Type: 0
-      NodeType: 2
-      Parent: 32
-      Trigger: 0
-      TriggerText: 
-      Connections: 
-    - ID: 34
-      Size:
-        serializedVersion: 2
-        x: 349
-        y: 359
-        width: 150
-        height: 125
-      Text: Test Yes
-      Type: 0
-      NodeType: 1
-      Parent: 32
-      Trigger: 0
-      TriggerText: 
-      Connections: 21000000
-    - ID: 35
-      Size:
-        serializedVersion: 2
-        x: 370
-        y: 65
-        width: 150
-        height: 125
-      Text: Test No
-      Type: 0
-      NodeType: 1
-      Parent: 31
-      Trigger: 0
-      TriggerText: 
-      Connections: 1e000000
-  CurrentSet: 0
-  TabList:
-  - TestCharacter
---- !u!4 &36369997
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 36369995}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 185.70775, y: 11.334541, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &39448886
 GameObject:
   m_ObjectHideFlags: 0
@@ -499,7 +339,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 1964766430}
 --- !u!4 &39448888
 Transform:
   m_ObjectHideFlags: 0
@@ -511,7 +351,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &70633147 stripped
 RectTransform:
@@ -642,11 +482,11 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: 738afe75b0b0b2147ab72d19013bb404, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 0
     m_AlignByGeometry: 0
@@ -862,7 +702,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 1476593170}
 --- !u!4 &109345547
 Transform:
   m_ObjectHideFlags: 0
@@ -874,7 +714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134183866
 GameObject:
@@ -903,7 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 716375855}
 --- !u!4 &134183868
 Transform:
   m_ObjectHideFlags: 0
@@ -915,7 +755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &137154557 stripped
 RectTransform:
@@ -1396,6 +1236,49 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
     type: 2}
   m_PrefabInternal: {fileID: 1956959640}
+--- !u!1 &211760974
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 211760976}
+  - component: {fileID: 211760975}
+  m_Layer: 0
+  m_Name: WriterDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &211760975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211760974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &211760976
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 211760974}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 24
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &214881705 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224383740196184562, guid: 51b7a7d10cf8dba4b80d4e353f2040c8,
@@ -1869,7 +1752,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1636595590}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.29034913
+  m_Size: 0.2903491
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2273,7 +2156,7 @@ GameObject:
   - component: {fileID: 343122118}
   - component: {fileID: 343122117}
   m_Layer: 0
-  m_Name: DialogueTree
+  m_Name: ButlerDialogue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2397,7 +2280,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &349906585
 Prefab:
@@ -2642,6 +2525,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 353720966}
+--- !u!1 &367877868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 367877870}
+  - component: {fileID: 367877869}
+  m_Layer: 0
+  m_Name: CountDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &367877869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367877868}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &367877870
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 367877868}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 31
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395142062
 Prefab:
   m_ObjectHideFlags: 0
@@ -3066,6 +2992,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 471486306}
+--- !u!1 &479795757
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 479795759}
+  - component: {fileID: 479795758}
+  m_Layer: 0
+  m_Name: MaidDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &479795758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 479795757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &479795759
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 479795757}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &497098948
 Prefab:
   m_ObjectHideFlags: 0
@@ -3760,6 +3729,49 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 51b7a7d10cf8dba4b80d4e353f2040c8, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &646481692
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 646481694}
+  - component: {fileID: 646481693}
+  m_Layer: 0
+  m_Name: ConstableDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &646481693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646481692}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &646481694
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 646481692}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 23
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &654106954 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224383740196184562, guid: 51b7a7d10cf8dba4b80d4e353f2040c8,
@@ -4115,6 +4127,49 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224383740196184562, guid: 51b7a7d10cf8dba4b80d4e353f2040c8,
     type: 2}
   m_PrefabInternal: {fileID: 1296076344}
+--- !u!1 &716375854
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 716375856}
+  - component: {fileID: 716375855}
+  m_Layer: 0
+  m_Name: ReporterDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &716375855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 716375854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &716375856
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 716375854}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &719949946 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
@@ -4400,7 +4455,16 @@ MonoBehaviour:
   Turn: {fileID: 1530111561}
   MyPlayer: {fileID: 797395587}
   Butler: {fileID: 1243918072}
-  Noble: {fileID: 1152419916}
+  Count: {fileID: 1152419916}
+  Chef: {fileID: 1315612237}
+  Maid: {fileID: 1796457493}
+  Businessman: {fileID: 39448887}
+  Nobleman: {fileID: 850667153}
+  Reporter: {fileID: 134183867}
+  Doctor: {fileID: 109345546}
+  Writer: {fileID: 1314193136}
+  Constable: {fileID: 1861056987}
+  Narrator: {fileID: 1398881976}
 --- !u!4 &771442199
 Transform:
   m_ObjectHideFlags: 0
@@ -4605,7 +4669,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &801907333 stripped
 RectTransform:
@@ -5016,7 +5080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 1865657920}
 --- !u!4 &850667154
 Transform:
   m_ObjectHideFlags: 0
@@ -5028,7 +5092,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &859988092 stripped
 RectTransform:
@@ -6814,7 +6878,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 36369996}
+  CharacterDialogues: {fileID: 367877869}
 --- !u!4 &1152419917
 Transform:
   m_ObjectHideFlags: 0
@@ -6826,7 +6890,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1167077167
 Prefab:
@@ -7749,7 +7813,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1243918072
 MonoBehaviour:
@@ -7763,6 +7827,49 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterDialogues: {fileID: 343122117}
+--- !u!1 &1248268466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1248268468}
+  - component: {fileID: 1248268467}
+  m_Layer: 0
+  m_Name: ChefDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1248268467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248268466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &1248268468
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1248268466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1254471981
 GameObject:
   m_ObjectHideFlags: 0
@@ -8409,7 +8516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 211760975}
 --- !u!4 &1314193137
 Transform:
   m_ObjectHideFlags: 0
@@ -8421,7 +8528,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1315612236
 GameObject:
@@ -8450,7 +8557,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 1248268467}
 --- !u!4 &1315612238
 Transform:
   m_ObjectHideFlags: 0
@@ -8462,7 +8569,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1328501431
 Prefab:
@@ -8812,6 +8919,47 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224383740196184562, guid: 51b7a7d10cf8dba4b80d4e353f2040c8,
     type: 2}
   m_PrefabInternal: {fileID: 307486814}
+--- !u!1 &1398881975
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1398881977}
+  - component: {fileID: 1398881976}
+  m_Layer: 0
+  m_Name: CharNarrator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1398881976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398881975}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterDialogues: {fileID: 1882363912}
+--- !u!4 &1398881977
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1398881975}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 336, y: 189.03357, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401232339
 GameObject:
   m_ObjectHideFlags: 0
@@ -9238,6 +9386,49 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436012425}
+--- !u!1 &1476593169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1476593171}
+  - component: {fileID: 1476593170}
+  m_Layer: 0
+  m_Name: DoctorDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1476593170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476593169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &1476593171
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476593169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 25
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1505807772
 GameObject:
   m_ObjectHideFlags: 0
@@ -9735,6 +9926,7 @@ MonoBehaviour:
   Doctor: {fileID: 109345546}
   Writer: {fileID: 1314193136}
   Constable: {fileID: 1861056987}
+  Narrator: {fileID: 1398881976}
 --- !u!224 &1636134506
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11289,7 +11481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 479795758}
 --- !u!4 &1796457494
 Transform:
   m_ObjectHideFlags: 0
@@ -11301,7 +11493,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810190515
 GameObject:
@@ -11464,8 +11656,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -185, y: 28}
-  m_SizeDelta: {x: 268.2, y: 279.5}
+  m_AnchoredPosition: {x: -171.8, y: 14.8}
+  m_SizeDelta: {x: 294.6, y: 305.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854180634
 MonoBehaviour:
@@ -11488,7 +11680,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 738afe75b0b0b2147ab72d19013bb404, type: 3}
-    m_FontSize: 24
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -11533,7 +11725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 0}
+  CharacterDialogues: {fileID: 646481693}
 --- !u!4 &1861056988
 Transform:
   m_ObjectHideFlags: 0
@@ -11545,13 +11737,56 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1864182001 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
     type: 2}
   m_PrefabInternal: {fileID: 98519465}
+--- !u!1 &1865657919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1865657921}
+  - component: {fileID: 1865657920}
+  m_Layer: 0
+  m_Name: NobleDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1865657920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1865657919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &1865657921
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1865657919}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869727086
 GameObject:
   m_ObjectHideFlags: 0
@@ -11771,6 +12006,502 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1876410287}
+--- !u!1 &1882363911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1882363913}
+  - component: {fileID: 1882363912}
+  m_Layer: 0
+  m_Name: NarratorDialogue
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1882363912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882363911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set:
+  - CurrentId: 29
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 5
+        y: 168
+        width: 150
+        height: 125
+      Text: Entering the dining room, you notice that you seem to be the last person
+        here, based on the number of chairs and plates. Apart from your friend, the
+        mansion owner, there is only one other noble, an infamous count who has been
+        on the news lately due to a scandal.
+      Type: 0
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 01000000
+    Windows:
+    - ID: 0
+      Size:
+        serializedVersion: 2
+        x: 4
+        y: 172
+        width: 150
+        height: 125
+      Text: Entering the dining room, you notice that you seem to be the last person
+        here, based on the number of chairs and plates. Apart from your friend, the
+        mansion owner, there is only one other noble, an infamous count who has been
+        on the news lately due to a scandal.
+      Type: 0
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 01000000
+    - ID: 1
+      Size:
+        serializedVersion: 2
+        x: 164
+        y: 169
+        width: 150
+        height: 125
+      Text: There is also a young lady that seems like a news reporter, the one kind
+        of person you just happen to dislike, since you've been bothered by reporters
+        a lot, whether it was before or after you started working as a detective.
+      Type: 0
+      NodeType: 1
+      Parent: -2
+      Trigger: 0
+      TriggerText: 
+      Connections: 02000000
+    - ID: 2
+      Size:
+        serializedVersion: 2
+        x: 324
+        y: 165
+        width: 150
+        height: 125
+      Text: A middle-aged man wearing an expensive looking suit glances at you for
+        a moment, but decides to ignore you. From his clothes and his somewhat shrew
+        look, you deduce that he is most likely a businessman. The person besided
+        hi was an old doctor you remember having won some prize a couple years ago.
+        You don't remember his name.
+      Type: 0
+      NodeType: 1
+      Parent: 1
+      Trigger: 0
+      TriggerText: 
+      Connections: 03000000
+    - ID: 3
+      Size:
+        serializedVersion: 2
+        x: 488
+        y: 166
+        width: 150
+        height: 125
+      Text: The last person sitting at the table was a woman that seemed to be interested
+        in you. You don't remember seeing or hearing about her previously and the
+        only thing you can tell about her is that she seems to have rather steady
+        hands. with you counted in, the only thing lacking was a constable, and you
+        had all the material needed for a detective story.
+      Type: 0
+      NodeType: 1
+      Parent: 2
+      Trigger: 0
+      TriggerText: 
+      Connections: 04000000
+    - ID: 4
+      Size:
+        serializedVersion: 2
+        x: 5
+        y: 299
+        width: 150
+        height: 125
+      Text: 'As you begin to eat, you hear the news reporter pestering the count,
+        obviously trying to get something scandalous out of him. However, the count
+        is ignoring her, and is talking to the businessman. '
+      Type: 0
+      NodeType: 1
+      Parent: 3
+      Trigger: 0
+      TriggerText: 
+      Connections: 05000000
+    - ID: 5
+      Size:
+        serializedVersion: 2
+        x: 163
+        y: 298
+        width: 150
+        height: 125
+      Text: The doctor was more concerned about the food in front of him than the
+        other people and the woman that gave you few glances every now and then was
+        talking about something with your host.
+      Type: 0
+      NodeType: 1
+      Parent: 4
+      Trigger: 0
+      TriggerText: 
+      Connections: 06000000
+    - ID: 6
+      Size:
+        serializedVersion: 2
+        x: 327
+        y: 298
+        width: 150
+        height: 125
+      Text: And with a loud bang of thunder, the whole dinner party took an entirely
+        new turn, as the host grasps his chest and falls to the floor.
+      Type: 0
+      NodeType: 1
+      Parent: 5
+      Trigger: 0
+      TriggerText: 
+      Connections: 07000000
+    - ID: 7
+      Size:
+        serializedVersion: 2
+        x: 486
+        y: 297
+        width: 150
+        height: 125
+      Text: The first to act was the old doctor, who rushes at the fallen host, inspecting
+        his body for a while before opening his mouth.
+      Type: 0
+      NodeType: 1
+      Parent: 6
+      Trigger: 0
+      TriggerText: 
+      Connections: 08000000
+    - ID: 8
+      Size:
+        serializedVersion: 2
+        x: 5
+        y: 432
+        width: 150
+        height: 125
+      Text: '"Someone, call the police. Our host here was poisoned!"'
+      Type: 0
+      NodeType: 1
+      Parent: 7
+      Trigger: 0
+      TriggerText: 
+      Connections: 09000000
+    - ID: 9
+      Size:
+        serializedVersion: 2
+        x: 164
+        y: 435
+        width: 150
+        height: 125
+      Text: '"Is he... Dead?" The maid asks in an almost inaudible voice. Her body
+        is shaking, most likely from the shock.'
+      Type: 0
+      NodeType: 1
+      Parent: 8
+      Trigger: 0
+      TriggerText: 
+      Connections: 0a000000
+    - ID: 10
+      Size:
+        serializedVersion: 2
+        x: 324
+        y: 435
+        width: 150
+        height: 125
+      Text: '"I''m afraid so", the doctor nods, "Time of death, fifty-one minutes
+        past four. Cause of death, a heart failure caused by a toxic substance."'
+      Type: 0
+      NodeType: 1
+      Parent: 9
+      Trigger: 0
+      TriggerText: 
+      Connections: 0b000000
+    - ID: 11
+      Size:
+        serializedVersion: 2
+        x: 484
+        y: 435
+        width: 150
+        height: 125
+      Text: The butler, who rushed to call the police, returns to the dining room
+        and says, "The police have been called. Nobody is to leave the mansion until
+        they arrive."
+      Type: 0
+      NodeType: 1
+      Parent: 10
+      Trigger: 0
+      TriggerText: 
+      Connections: 0c000000
+    - ID: 12
+      Size:
+        serializedVersion: 2
+        x: 2
+        y: 560
+        width: 150
+        height: 125
+      Text: '"In other words, you''re saying that the murderer is one of us?" The
+        count laughs, "How foolish. None of us had any reason to do such a thing".'
+      Type: 0
+      NodeType: 1
+      Parent: 11
+      Trigger: 0
+      TriggerText: 
+      Connections: 0d000000
+    - ID: 13
+      Size:
+        serializedVersion: 2
+        x: 162
+        y: 560
+        width: 150
+        height: 125
+      Text: '"That remains to be seen", the butler states.'
+      Type: 0
+      NodeType: 1
+      Parent: 12
+      Trigger: 0
+      TriggerText: 
+      Connections: 0e000000
+    - ID: 14
+      Size:
+        serializedVersion: 2
+        x: 322
+        y: 560
+        width: 150
+        height: 125
+      Text: 'As everyone begins to look at one another with suspicion, you take out
+        your trusty notebook and decide to begin your investigation. '
+      Type: 0
+      NodeType: 1
+      Parent: 13
+      Trigger: 0
+      TriggerText: 
+      Connections: 0f000000
+    - ID: 15
+      Size:
+        serializedVersion: 2
+        x: 482
+        y: 560
+        width: 150
+        height: 125
+      Text: You should probably start by taking a closer look at the body.
+      Type: 1
+      NodeType: 1
+      Parent: 14
+      Trigger: 0
+      TriggerText: 
+      Connections: 10000000
+    - ID: 16
+      Size:
+        serializedVersion: 2
+        x: -2
+        y: 691
+        width: 150
+        height: 125
+      Text: Take a closer look at the body
+      Type: 2
+      NodeType: 1
+      Parent: 15
+      Trigger: 0
+      TriggerText: 
+      Connections: 11000000
+    - ID: 17
+      Size:
+        serializedVersion: 2
+        x: 182
+        y: 692
+        width: 150
+        height: 125
+      Text: You crouch and begin inspecting the victim. Having been alive just a moment
+        ago, his body is still warm. You don't see any visible wounds on his body.
+        As the doctor stated, he seems to have died of poisoning, but how the poison
+        was administered remains a mystery
+      Type: 0
+      NodeType: 1
+      Parent: 16
+      Trigger: 0
+      TriggerText: 
+      Connections: 12000000
+    - ID: 18
+      Size:
+        serializedVersion: 2
+        x: 342
+        y: 692
+        width: 150
+        height: 125
+      Text: Tje victim isn't carrying anything that would indicate suicide, such as
+        a note or a will, but the possibility is still there. There are a few drops
+        of blood on his shirt.
+      Type: 0
+      NodeType: 1
+      Parent: 17
+      Trigger: 0
+      TriggerText: 
+      Connections: 13000000
+    - ID: 19
+      Size:
+        serializedVersion: 2
+        x: 502
+        y: 692
+        width: 150
+        height: 125
+      Text: '"I know who the murderer is", The businessman shouts. "And I have proof
+        of it as well"'
+      Type: 0
+      NodeType: 1
+      Parent: 18
+      Trigger: 0
+      TriggerText: 
+      Connections: 14000000
+    - ID: 20
+      Size:
+        serializedVersion: 2
+        x: 662
+        y: 692
+        width: 150
+        height: 125
+      Text: '"That''s not something to be said lightly", the doctor says, "I hope
+        you''re not just making baseless accusatons."'
+      Type: 0
+      NodeType: 1
+      Parent: 19
+      Trigger: 0
+      TriggerText: 
+      Connections: 15000000
+    - ID: 21
+      Size:
+        serializedVersion: 2
+        x: 822
+        y: 692
+        width: 150
+        height: 125
+      Text: '"Of course not", the businessman laughs as he pulls out a letter,"This
+        letter is all the proof I need." It''s a threat letter sent to our host, which
+        he gave me yesterday for safekeeping. And the sender of the letter is-"'
+      Type: 0
+      NodeType: 1
+      Parent: 20
+      Trigger: 0
+      TriggerText: 
+      Connections: 16000000
+    - ID: 22
+      Size:
+        serializedVersion: 2
+        x: 982
+        y: 692
+        width: 150
+        height: 125
+      Text: '"-Our detective here", the businesman finishes his accusations.'
+      Type: 0
+      NodeType: 1
+      Parent: 21
+      Trigger: 0
+      TriggerText: 
+      Connections: 17000000
+    - ID: 23
+      Size:
+        serializedVersion: 2
+        x: 1142
+        y: 692
+        width: 150
+        height: 125
+      Text: '"How stupid", you mutter, "that envelope is probably just as empty as
+        your words."'
+      Type: 0
+      NodeType: 1
+      Parent: 22
+      Trigger: 0
+      TriggerText: 
+      Connections: 18000000
+    - ID: 24
+      Size:
+        serializedVersion: 2
+        x: 1141
+        y: 558
+        width: 150
+        height: 125
+      Text: '"Sadly, I''m not so stupid as to fall for that, murderer." I will be
+        giving this letter directly to the police, and only to the police."'
+      Type: 0
+      NodeType: 1
+      Parent: 23
+      Trigger: 0
+      TriggerText: 
+      Connections: 19000000
+    - ID: 25
+      Size:
+        serializedVersion: 2
+        x: 984
+        y: 562
+        width: 150
+        height: 125
+      Text: Somehow you have become the prime suspect, as the others seemed to have
+        believed the businessman's words. Without further proof, that fake letter
+        that he is holding might be enough for the police to make you the culprit.
+      Type: 0
+      NodeType: 1
+      Parent: 24
+      Trigger: 0
+      TriggerText: 
+      Connections: 1a000000
+    - ID: 26
+      Size:
+        serializedVersion: 2
+        x: 824
+        y: 559
+        width: 150
+        height: 125
+      Text: You must find the real culprit and enough proof before the police arrive,
+        or it's you who will end in jail.
+      Type: 0
+      NodeType: 1
+      Parent: 25
+      Trigger: 0
+      TriggerText: 
+      Connections: 1b000000
+    - ID: 27
+      Size:
+        serializedVersion: 2
+        x: 814
+        y: 419
+        width: 150
+        height: 125
+      Text: Begin your investigation
+      Type: 0
+      NodeType: 2
+      Parent: 26
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+  CurrentSet: 0
+  TabList:
+  - NarratorDinner
+--- !u!4 &1882363913
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882363911}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 337.03625, y: 144.63397, z: -0.34875}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 22
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916047283
 GameObject:
   m_ObjectHideFlags: 0
@@ -12024,6 +12755,49 @@ GameObject:
   m_PrefabParentObject: {fileID: 1361779025003450, guid: c8f38e2ed50600d428d4e6505553b873,
     type: 2}
   m_PrefabInternal: {fileID: 1956959640}
+--- !u!1 &1964766429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1964766431}
+  - component: {fileID: 1964766430}
+  m_Layer: 0
+  m_Name: BusinessmanDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1964766430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964766429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set: []
+  CurrentSet: 0
+  TabList: []
+--- !u!4 &1964766431
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1964766429}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 27
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1986762097
 Prefab:
   m_ObjectHideFlags: 0
