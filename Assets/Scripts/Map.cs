@@ -22,31 +22,82 @@ public class Map : MonoBehaviour
     Room Library;
     Room Servant;
     Room Current;
-    public Character Butler;
-    public Character Noble;
+    public Character Butler, Count, Chef, Maid, Businessman, Nobleman, Reporter, Doctor, Writer, Constable;
 
     public void Createmap()
     {
-        Lobby = new Room("Entrance Hall");
-        Butler.SetTree("Prologue");
+        Lobby = new Room("Lobby");
+        Lounge = new Room("Lounge");
+        Servant = new Room("Servant");
+        Library = new Room("Library");
+        Kitchen = new Room("Kitchen");
+        Bed = new Room("Bed");
+        Dinner = new Room("Dining Room");
+        Study = new Room("Study");
+        Current = new Room(null);
+        this.GenerateClues();
+        this.GenerateCharacters();
+        StudyBtn = (PointerController)GameObject.Find("BtnStudy").GetComponent<PointerController>();
+        LibraryBtn = (PointerController)GameObject.Find("BtnLibrary").GetComponent<PointerController>();
+        DiningBtn = (PointerController)GameObject.Find("BtnDiningroom").GetComponent<PointerController>();
+        LoungeBtn = (PointerController)GameObject.Find("BtnLounge").GetComponent<PointerController>();
+        LobbyBtn = (PointerController)GameObject.Find("BtnLobby").GetComponent<PointerController>();
+        ServantBtn = (PointerController)GameObject.Find("BtnServantroom").GetComponent<PointerController>();
+        BedBtn = (PointerController)GameObject.Find("BtnBedroom").GetComponent<PointerController>();
+        KitchenBtn = (PointerController)GameObject.Find("BtnKitchen").GetComponent<PointerController>();
+
+    }
+
+    private void GenerateCharacters()
+    {
+        Count.SetData("Count", Lobby);
         Butler.SetData("Butler", Lobby);
-        Butler.SetClue(new Clue("Butler", "What an asshole"));
-        Noble.SetTree("TestCharacter");
-        Noble.SetData("Noble", Lobby);
-        Noble.SetClue(new Clue("Noble", "I bet he's worth millions"));
+        Chef.SetData("Chef", Kitchen);
+        Maid.SetData("Maid", Kitchen);
+        Businessman.SetData("Businessman", Dinner);
+        Nobleman.SetData("Nobleman", Dinner);
+        Reporter.SetData("Reporter", Lobby);
+        Doctor.SetData("Doctor", Dinner);
+        Writer.SetData("Writer", Library);
+        Constable.SetData("Constable", null);
+
+        Butler.SetTree("Prologue");
+        Count.SetTree("TestCharacter");
+
+        Count.SetClue(new Clue("Count", "A count whose life has been filled with one scandal after another." +
+            " Perhaps after tonight there will be another mark on the list?"));
+        Butler.SetClue(new Clue("Butler", "The butler of the mansion. Old man with a cold stare. " +
+            "Acts professionally even after his employer's sudden demise."));
+        Chef.SetClue(new Clue("Chef", "The chef of the mansion. Has been working for the victim for as long as you remember." +
+            " Seems to be holding a grudge towards him."));
+        Maid.SetClue(new Clue("Maid", "The maid of the mansion. Usually capable, but after his employer's death, she went into a shock."));
+        Businessman.SetClue(new Clue("Businessman", "A shrew businessman. Claims that you are the culprit, making him number one suspect on your list. " +
+            "However, this might be exactly what the culprit wants you to believe"));
+        Nobleman.SetClue(new Clue("Nobleman", "The now deceased owner of the mansion. An old friend of yours, whom you haven't met in ages. " +
+            "He won't be able to rest in peace until the culprit has been found."));
+        Reporter.SetClue(new Clue("Reporter", "A young news reporter. Came to the mansion to snoop for scandals, but found something more news worthy." +
+            " You aren't exactly happy about her constant questioning."));
+        Doctor.SetClue(new Clue("Doctor", "An old doctor with some fame. The first to inspect the victim. " +
+            "Coupled with his knowledge of medicine, he is without a doubt a suspect."));
+        Writer.SetClue(new Clue("Writer", "A woman whom you didn't even know before this night. " +
+            "Apparently the author of a bestseller detective story."));
+        Constable.SetClue(new Clue("Constable", "The police officer who is on his way to the mansion."));
+
 
         List<Character> roomChars = new List<Character>
         {
-            Butler, Noble
+            Butler, Count
         };
         Lobby.SetCharacters(roomChars);
+
+    }
+    private void GenerateClues()
+    {
         List<Clue> temp = new List<Clue>
         {
             new Clue("Lighter", "a Standard lighter. It's probably more useful to you then it's previous owner.")
         };
         Lobby.SetClues(temp);
-
-        Lounge = new Room("Lounge");
         List<Clue> temp2 = new List<Clue>
         {
             new Clue("Diary","The most recent entry mentions something about a debt?" +
@@ -57,8 +108,6 @@ public class Map : MonoBehaviour
             "Perhaps the victim enjoyed gambling? The joker seems to be missing.")
         };
         Lounge.SetClues(temp2);
-
-        Servant = new Room("Servant");
         List<Clue> temp3 = new List<Clue>
         {
             new Clue("Boot","Doesn't seem relevant in any way, but you never know, It might even be the culprit. " +
@@ -66,8 +115,6 @@ public class Map : MonoBehaviour
             new Clue("Study Room Key","A key to the study.")
         };
         Servant.SetClues(temp3);
-
-        Library = new Room("Library");
         List<Clue> temp4 = new List<Clue>
         {
             new Clue("Detective Story","A story about an amnesiac detective that tries to solve a murder, " +
@@ -75,8 +122,6 @@ public class Map : MonoBehaviour
             " It seems almost ironic that you decided to pick this book.")
         };
         Library.SetClues(temp4);
-
-        Kitchen = new Room("Kitchen");
         List<Clue> temp5 = new List<Clue>
         {
             new Clue("Thin Blade", "Very thin blade. Has traces of poison in it. " +
@@ -86,8 +131,6 @@ public class Map : MonoBehaviour
             "Either way, the poison seems to have done it's job.")
         };
         Kitchen.SetClues(temp5);
-
-        Bed = new Room("Bed");
         List<Clue> temp6 = new List<Clue>
         {
              new Clue("Syringe","a small syringe made for injecting drugs, or perhaps poison? " +
@@ -99,8 +142,6 @@ public class Map : MonoBehaviour
              new Clue("IOU","Someone had a large debt to the victim. A clear motive, at the very least.")
         };
         Bed.SetClues(temp6);
-
-        Dinner = new Room("Dining Room");
         List<Clue> temp7 = new List<Clue>
         {
             new Clue("Improvised Autopsy","The victim seems to have died of poisoning. " +
@@ -109,8 +150,6 @@ public class Map : MonoBehaviour
             "Without proper tools, it would be impossible to tell.")
         };
         Dinner.SetClues(temp7);
-
-        Study = new Room("Study");
         List<Clue> temp8 = new List<Clue>
         {
             new Clue("Victim's Will","Testament of the victim. Either a real one, or extremely well made forgery. " +
@@ -120,17 +159,6 @@ public class Map : MonoBehaviour
             new Clue("Bedroom Key","A key to the bedroom.")
         };
         Study.SetClues(temp8);
-        Current = new Room(null);
-
-        StudyBtn = (PointerController)GameObject.Find("BtnStudy").GetComponent<PointerController>();
-        LibraryBtn = (PointerController)GameObject.Find("BtnLibrary").GetComponent<PointerController>();
-        DiningBtn = (PointerController)GameObject.Find("BtnDiningroom").GetComponent<PointerController>();
-        LoungeBtn = (PointerController)GameObject.Find("BtnLounge").GetComponent<PointerController>();
-        LobbyBtn = (PointerController)GameObject.Find("BtnLobby").GetComponent<PointerController>();
-        ServantBtn = (PointerController)GameObject.Find("BtnServantroom").GetComponent<PointerController>();
-        BedBtn = (PointerController)GameObject.Find("BtnBedroom").GetComponent<PointerController>();
-        KitchenBtn = (PointerController)GameObject.Find("BtnKitchen").GetComponent<PointerController>();
-
     }
 
     public Room Mapclick(Room Location)

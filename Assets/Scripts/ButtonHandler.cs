@@ -53,7 +53,6 @@ public class ButtonHandler : MonoBehaviour
         ButtonBack = Instantiate(BtnBack);
         ButtonBack.transform.SetParent(Canvas.transform, false);
         ButtonBack.SetActive(false);
-        //this.DisableNPCs();
 
         this.MyPlayer = MyPlayer;
 
@@ -108,26 +107,7 @@ public class ButtonHandler : MonoBehaviour
         //Generates the initial choices and text
         if (ButtonTalk != null && ButtonIsClicked(ButtonTalk))
         {
-            this.SetActionUI();
-            this.Talking = true;
-            this.TalkCanvas.enabled = true;
-            this.CharactersInRoom = this.CurrentRoom.GetCharacters();
-            int y = 160;
-            if (CharactersInRoom.Count > 1)
-            {
-                this.CharactersInRoomText.text = "Characters you can talk to:";
-                foreach (Character character in CharactersInRoom)
-                {
-                    this.GenerateChoice(y, character.GetName());
-                    y -= 40;
-                }
-            }
-            else if (this.CharactersInRoom != null && this.CharactersInRoom.Count == 1)
-            {
-                CharacterTalk = this.CharactersInRoom[0];
-                this.GenerateChoice(y, CharacterTalk.GetName());
-            }
-            this.CharacterNameText.text = "";
+            this.TalkAction();
         }
         //Disables other canvases, destroys all item buttons and sets Default UI
         if (ButtonBack != null && ButtonIsClicked(ButtonBack))
@@ -150,6 +130,32 @@ public class ButtonHandler : MonoBehaviour
         {
             this.ProgressInDialogue();
         }
+    }
+    /// <summary>
+    /// Generates the required NPC choices && starts the conversation
+    /// </summary>
+    private void TalkAction()
+    {
+        this.SetActionUI();
+        this.Talking = true;
+        this.TalkCanvas.enabled = true;
+        this.CharactersInRoom = this.CurrentRoom.GetCharacters();
+        int y = 160;
+        if (CharactersInRoom.Count > 1)
+        {
+            this.CharactersInRoomText.text = "Characters you can talk to:";
+            foreach (Character character in CharactersInRoom)
+            {
+                this.GenerateChoice(y, character.GetName());
+                y -= 40;
+            }
+        }
+        else if (this.CharactersInRoom != null && this.CharactersInRoom.Count == 1)
+        {
+            CharacterTalk = this.CharactersInRoom[0];
+            this.GenerateChoice(y, CharacterTalk.GetName());
+        }
+        this.CharacterNameText.text = "";
     }
     /// <summary>
     /// Goes through the choices.
@@ -343,5 +349,10 @@ public class ButtonHandler : MonoBehaviour
     public bool GetTalkActive()
     {
         return Talking;
+    }
+
+    public void GameStart()
+    {
+        this.TalkAction();
     }
 }
