@@ -51,7 +51,7 @@ public class GameController : MonoBehaviour
         Location = this.GameMap.Mapclick(Location);
         if (!RoomName.Equals(Location.GetName()))
         {
-            if (Location.GetName().Equals("Entrance Hall") && this.CanMoveTo(this.GameMap.GetRoomObject("Lobby")))
+            if (Location.GetName().Equals("Entrance Hall") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Lobby")))
             {
                 this.RoomName = "Entrance Hall";
                 this.DisableCanvas();
@@ -59,7 +59,7 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Entrance;
                 Turn.NextTurn();
             }
-            else if (Location.GetName().Equals("Lounge") && this.CanMoveTo(this.GameMap.GetRoomObject("Lounge")))
+            else if (Location.GetName().Equals("Lounge") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Lounge")))
             {
                 this.RoomName = "Lounge";
                 this.DisableCanvas();
@@ -67,7 +67,7 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Lounge;
                 Turn.NextTurn();
             }
-            else if (Location.GetName().Equals("Servant") && this.CanMoveTo(this.GameMap.GetRoomObject("Servant")))
+            else if (Location.GetName().Equals("Servant") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Servant")))
             {
                 this.RoomName = "Servant";
                 this.DisableCanvas();
@@ -75,7 +75,7 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Servants;
                 Turn.NextTurn();
             }
-            else if (Location.GetName().Equals("Library") && this.CanMoveTo(this.GameMap.GetRoomObject("Library")))
+            else if (Location.GetName().Equals("Library") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Library")))
             {
                 this.RoomName = "Library";
                 this.DisableCanvas();
@@ -83,7 +83,7 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Library;
                 Turn.NextTurn();
             }
-            else if (Location.GetName().Equals("Kitchen") && this.CanMoveTo(this.GameMap.GetRoomObject("Kitchen")))
+            else if (Location.GetName().Equals("Kitchen") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Kitchen")))
             {
                 this.RoomName = "Kitchen";
                 this.DisableCanvas();
@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Kitchen;
                 Turn.NextTurn();
             }
-            else if (Location.GetName().Equals("Bed") && this.CanMoveTo(this.GameMap.GetRoomObject("Bed")))
+            else if (Location.GetName().Equals("Bed") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Bed")))
             {
                 this.RoomName = "Bed";
                 this.DisableCanvas();
@@ -99,7 +99,7 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Bedroom;
                 Turn.NextTurn();
             }
-            else if (Location.GetName().Equals("Dining Room") && this.CanMoveTo(this.GameMap.GetRoomObject("Dinner")))
+            else if (Location.GetName().Equals("Dining Room") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Dinner")))
             {
                 this.RoomName = "Dining Room";
                 this.DisableCanvas();
@@ -107,7 +107,7 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Dining;
                 Turn.NextTurn();
             }
-            else if (Location.GetName().Equals("Study") && this.CanMoveTo(this.GameMap.GetRoomObject("Study")))
+            else if (Location.GetName().Equals("Study") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Study")))
             {
                 this.RoomName = "Study";
                 this.DisableCanvas();
@@ -176,7 +176,7 @@ public class GameController : MonoBehaviour
     /// </summary>
     /// <param name="nextRoom"></param>
     /// <returns>bool that states if the player can move there</returns>
-    private bool CanMoveTo(Room nextRoom)
+    private bool CanMoveToRoom(Room nextRoom)
     {
         if (Turn.GetTurn() == 0 && nextRoom != this.GameMap.GetRoomObject("Dinner"))
         {
@@ -184,6 +184,20 @@ public class GameController : MonoBehaviour
             this.PanelTextBox.GetComponent<Text>().text = "You’re here for a dinner party, not an investigation. " +
                 "You should follow the butler and go to the dining room";
             StartCoroutine(ShowAndHide(Panel, 2.0f));
+            return false;
+        }
+        if(!this.MyPlayer.GetNotebook().HasClue("Bedroom Key") && nextRoom == this.GameMap.GetRoomObject("Bed"))
+        {
+            this.Panel.SetActive(true);
+            this.PanelTextBox.GetComponent<Text>().text = "The bedroom is locked, I need a key";
+            StartCoroutine(ShowAndHide(Panel, 3.0f));
+            return false;
+        }
+        if(!this.MyPlayer.GetNotebook().HasClue("Study Room Key") && nextRoom == this.GameMap.GetRoomObject("Study"))
+        {
+            this.Panel.SetActive(true);
+            this.PanelTextBox.GetComponent<Text>().text = "The study is locked, I need a key";
+            StartCoroutine(ShowAndHide(Panel, 3.0f));
             return false;
         }
         return true;
@@ -199,10 +213,10 @@ public class GameController : MonoBehaviour
         }
         // test code
         // move character to Lounge on turn 3
-        if (Turn.GetTurn() == 3)
-        {
-            GameMap.TransportCharacter(Nobleman, GameMap.GetRoomObject("Lounge"));
-        }
+        //if (Turn.GetTurn() == 3)
+        //{
+        //    GameMap.TransportCharacter(Nobleman, GameMap.GetRoomObject("Lounge"));
+        //}
         if (Turn.GetTurn() == 30)
         {
             SceneManager.LoadScene(3);

@@ -174,7 +174,6 @@ public class ButtonHandler : MonoBehaviour
                 clicked = true;
                 if (!this.CharacterTalk.NextChoice(item.GetComponentInChildren<Text>().text))
                 {
-                    Debug.Log("nope");
                     this.CharacterTalk.Next();
                 }
                 if (item.GetComponentInChildren<Text>().text.Equals("Goodbye"))
@@ -191,7 +190,6 @@ public class ButtonHandler : MonoBehaviour
                     {
                         if (character.GetName().Equals(item.GetComponentInChildren<Text>().text))
                         {
-                            Debug.Log("nuasd");
                             this.CharacterTalk = character;
                             clicked = true;
                         }
@@ -274,7 +272,7 @@ public class ButtonHandler : MonoBehaviour
             this.CharacterTalk.Talked();
             if (MyPlayer.GetNotebook().GetClue(this.CharacterTalk.GetName()) == null)
             {
-                MyPlayer.GetNotebook().AddClue(this.CharacterTalk.GetClue());
+                if(this.CharacterTalk.GetClue() != null) MyPlayer.GetNotebook().AddClue(this.CharacterTalk.GetClue());
             }
         }
         this.CharacterTalk = null;

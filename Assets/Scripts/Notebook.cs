@@ -44,5 +44,17 @@ public class Notebook
     {
         return this.Clues;
     }
+
+    public bool HasClue(string clueName)
+    {
+        foreach (Clue clue in this.Clues)
+        {
+            if (clue.GetName().Equals(clueName))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }
 
