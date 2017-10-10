@@ -147,7 +147,7 @@ public class ButtonHandler : MonoBehaviour
             foreach (Character character in CharactersInRoom)
             {
                 this.GenerateChoice(y, character.GetName());
-                y -= 40;
+                y -= 60;
             }
         }
         else if (this.CharactersInRoom != null && this.CharactersInRoom.Count == 1)
@@ -219,7 +219,7 @@ public class ButtonHandler : MonoBehaviour
             foreach (string choice in choices)
             {
                 this.GenerateChoice(y, choice);
-                y -= 40;
+                y -= 60;
             }
         }
         else if (!this.CharacterTalk.IsEndOfConversation())

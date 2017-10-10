@@ -29,6 +29,10 @@ public class Character : MonoBehaviour
     {
         return this.CharacterClue;
     }
+    public string GetTreeName()
+    {
+        return this.CharacterDialogues.GetCurrentTree();
+    }
     public string[] GetChoices()
     {
         return this.CharacterDialogues.GetChoices();

@@ -7,6 +7,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private Notebook PlayerNotebook;
+    private bool AgreementWithReporter = false;
 
     public void SetData(Notebook playerNotebook)
     {
@@ -16,5 +17,10 @@ public class Player : MonoBehaviour
     public Notebook GetNotebook()
     {
         return this.PlayerNotebook;
+    }
+
+    public bool MadeAgreementWithReporter()
+    {
+        return AgreementWithReporter;
     }
 }

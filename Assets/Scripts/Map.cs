@@ -50,20 +50,55 @@ public class Map : MonoBehaviour
 
     private void GenerateCharacters()
     {
-        Count.SetData("Count", Lobby);
+        Count.SetData("Count", Library);
         Butler.SetData("Butler", Lobby);
         Chef.SetData("Chef", Kitchen);
         Maid.SetData("Maid", Kitchen);
-        Businessman.SetData("Businessman", null);
+        Businessman.SetData("Businessman", Servant);
         Nobleman.SetData("Nobleman", null);
-        Reporter.SetData("Reporter", Lobby);
-        Doctor.SetData("Doctor", null);
+        Reporter.SetData("Reporter", Servant);
+        Doctor.SetData("Doctor", Servant);
         Writer.SetData("Writer", Library);
         Constable.SetData("Constable", null);
         Narrator.SetData("Narrator", null);
 
+        List<Character> lobbyChars = new List<Character>
+        {
+            Butler
+        };
+        Lobby.SetCharacters(lobbyChars);
+        List<Character> dinnerChars = new List<Character>
+        {
+            Narrator
+        };
+        Dinner.SetCharacters(dinnerChars);
+
+        List<Character> libraryChars = new List<Character>
+        {
+            Count,Writer
+        };
+        Library.SetCharacters(libraryChars);
+
+        List<Character> servantChars = new List<Character>
+        {
+            Reporter,Doctor,Businessman
+        };
+        Servant.SetCharacters(servantChars);
+
+        List<Character> kitchenChars = new List<Character>
+        {
+            Chef,Maid
+        };
+        Kitchen.SetCharacters(kitchenChars);
         Butler.SetTree("Prologue");
         Narrator.SetTree("NarratorDinner");
+        Chef.SetTree("ChefDefault");
+        Maid.SetTree("MaidDefault");
+        Businessman.SetTree("BusinessmanDefault");
+        Reporter.SetTree("ReporterDefault");
+        Doctor.SetTree("DoctorDefault");
+        Writer.SetTree("WriterDefault");
+        Count.SetTree("CountDefault");
 
 
         Count.SetClue(new Clue("Count", "A count whose life has been filled with one scandal after another." +
@@ -84,19 +119,6 @@ public class Map : MonoBehaviour
         Writer.SetClue(new Clue("Writer", "A woman whom you didn't even know before this night. " +
             "Apparently the author of a bestseller detective story."));
         Constable.SetClue(new Clue("Constable", "The police officer who is on his way to the mansion."));
-
-
-        List<Character> roomChars = new List<Character>
-        {
-            Butler
-        };
-        Lobby.SetCharacters(roomChars);
-        List<Character> dinnerChars = new List<Character>
-        {
-            Narrator
-        };
-        Dinner.SetCharacters(dinnerChars);
-
     }
     private void GenerateClues()
     {

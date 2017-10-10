@@ -186,14 +186,14 @@ public class GameController : MonoBehaviour
             StartCoroutine(ShowAndHide(Panel, 2.0f));
             return false;
         }
-        if(!this.MyPlayer.GetNotebook().HasClue("Bedroom Key") && nextRoom == this.GameMap.GetRoomObject("Bed"))
+        if (!this.MyPlayer.GetNotebook().HasClue("Bedroom Key") && nextRoom == this.GameMap.GetRoomObject("Bed"))
         {
             this.Panel.SetActive(true);
             this.PanelTextBox.GetComponent<Text>().text = "The bedroom is locked, I need a key";
             StartCoroutine(ShowAndHide(Panel, 3.0f));
             return false;
         }
-        if(!this.MyPlayer.GetNotebook().HasClue("Study Room Key") && nextRoom == this.GameMap.GetRoomObject("Study"))
+        if (!this.MyPlayer.GetNotebook().HasClue("Study Room Key") && nextRoom == this.GameMap.GetRoomObject("Study"))
         {
             this.Panel.SetActive(true);
             this.PanelTextBox.GetComponent<Text>().text = "The study is locked, I need a key";
@@ -207,9 +207,11 @@ public class GameController : MonoBehaviour
     /// </summary>
     public void TurnAction()
     {
-        if (Turn.GetTurn() == 1)
+        if (Turn.GetTurn() == 1 && !this.Butler.GetTreeName().Equals("ButlerDefault"))
         {
+            Debug.Log(this.Butler.GetTreeName());
             this.Buttons.DiningRoomAction();
+            this.Butler.SetTree("ButlerDefault");
         }
         // test code
         // move character to Lounge on turn 3
@@ -221,5 +223,62 @@ public class GameController : MonoBehaviour
         {
             SceneManager.LoadScene(3);
         }
+
+        if (this.MyPlayer.GetNotebook().HasClue("Fake Letter"))
+        {
+            this.Maid.SetTree("MaidWithFakeLetter");
+        }
+        else
+        {
+            this.Maid.SetTree("MaidWithoutFakeLetter");
+        }
+
+        if(this.MyPlayer.GetNotebook().HasClue("Diary") && this.MyPlayer.MadeAgreementWithReporter())
+        {
+            this.Reporter.SetTree("ReporterWithAgreement");
+        }
+        if (this.MyPlayer.GetNotebook().HasClue("Study Room Key"))
+        {
+            this.Butler.SetTree("ButlerWithStudyKey");
+        }
+
+        if(this.MyPlayer.GetNotebook().HasClue("Victim's Will"))
+        {
+            this.Doctor.SetTree("DoctorWithWill");
+        }
+        if (this.MyPlayer.GetNotebook().HasClue("Study Room Key"))
+        {
+            this.Chef.SetTree("ChefWithStudyKey");
+        }
+        if(this.MyPlayer.GetNotebook().HasClue("Playing Cards"))
+        {
+            this.Count.SetTree("CountWithPlayingCards");
+        }
+        if (this.MyPlayer.GetNotebook().HasClue("Detective Story"))
+        {
+            this.Writer.SetTree("WriterWithStory");
+        }
+        if (this.MyPlayer.MadeAgreementWithReporter())
+        {
+            this.Businessman.SetTree("BusinessmanReporterAgreement");
+        }
+
+        if (this.TimeHasPassed())
+        {
+            this.Maid.SetTree("MaidCanAccuse");
+            this.Reporter.SetTree("ReporterCanAccuse");
+            this.Butler.SetTree("ButlerCanAccuse");
+            this.Doctor.SetTree("DoctorCanAccuse");
+            this.Chef.SetTree("ChefCanAccuse");
+            this.Count.SetTree("CountCanAccuse");
+            this.Writer.SetTree("WriterCanAccuse");
+            this.Businessman.SetTree("BusinessmanCanAccuse");
+        }
+
+    }
+
+    private bool TimeHasPassed()
+    {
+        return (Turn.GetTurn() > 25 && this.MyPlayer.GetNotebook().GetClues().Count > 30);
     }
 }

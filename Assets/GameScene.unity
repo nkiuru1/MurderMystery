@@ -351,7 +351,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &70633147 stripped
 RectTransform:
@@ -714,7 +714,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &134183866
 GameObject:
@@ -743,7 +743,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 716375855}
+  CharacterDialogues: {fileID: 418479216}
 --- !u!4 &134183868
 Transform:
   m_ObjectHideFlags: 0
@@ -755,7 +755,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &137154557 stripped
 RectTransform:
@@ -1263,9 +1263,150 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Set: []
+  Set:
+  - CurrentId: 8
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 19
+        y: 60
+        width: 150
+        height: 125
+      Text: '"Well, this night has been full of cliches. I don''t suppose it''ll end
+        with the butler being the culprit, right?"'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000007000000
+    Windows:
+    - ID: 0
+      Size:
+        serializedVersion: 2
+        x: 19
+        y: 60
+        width: 150
+        height: 125
+      Text: '"Well, this night has been full of cliches. I don''t suppose it''ll end
+        with the butler being the culprit, right?"'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000007000000
+    - ID: 1
+      Size:
+        serializedVersion: 2
+        x: 201
+        y: 58
+        width: 150
+        height: 125
+      Text: Ask her what she means
+      Type: 2
+      NodeType: 1
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 02000000
+    - ID: 2
+      Size:
+        serializedVersion: 2
+        x: 369
+        y: 57
+        width: 150
+        height: 125
+      Text: '"Dark and stormy evening, dinner party in a mansion, a sudden murder
+        and the detective just happens to be at the scene. It''s just about every
+        detective story in the world. Well, apart from the detective being accused
+        of the murder. That sounds about the kind of twist I would write."'
+      Type: 1
+      NodeType: 1
+      Parent: 1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0300000005000000
+    - ID: 3
+      Size:
+        serializedVersion: 2
+        x: 373
+        y: 201
+        width: 150
+        height: 125
+      Text: Ask her if shes an author
+      Type: 2
+      NodeType: 1
+      Parent: 2
+      Trigger: 0
+      TriggerText: 
+      Connections: 04000000
+    - ID: 4
+      Size:
+        serializedVersion: 2
+        x: 543
+        y: 198
+        width: 150
+        height: 125
+      Text: '"That''s right, the poor noble over there used to be one of my biggest
+        fans. Figuratively of course. Literally that title belongs to my dear old
+        pa. You''ll probably find one of my novels in the library, though this might
+        not be the right time for reading."'
+      Type: 0
+      NodeType: 2
+      Parent: 3
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    - ID: 5
+      Size:
+        serializedVersion: 2
+        x: 130
+        y: 365
+        width: 150
+        height: 125
+      Text: Ask why she was so interested in you
+      Type: 2
+      NodeType: 1
+      Parent: 2
+      Trigger: 0
+      TriggerText: 
+      Connections: 06000000
+    - ID: 6
+      Size:
+        serializedVersion: 2
+        x: 355
+        y: 359
+        width: 150
+        height: 125
+      Text: '"Well, it''s not every day you meet someone whose whole existence screams
+        of detective. I was thinking of asking about you previous cases for some inspiration.
+        That doesn''t seem like the right thing to do at the the moment though."'
+      Type: 0
+      NodeType: 2
+      Parent: 5
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    - ID: 7
+      Size:
+        serializedVersion: 2
+        x: 101
+        y: 213
+        width: 150
+        height: 125
+      Text: Leave her be.
+      Type: 2
+      NodeType: 2
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 
   CurrentSet: 0
-  TabList: []
+  TabList:
+  - WriterDefault
 --- !u!4 &211760976
 Transform:
   m_ObjectHideFlags: 0
@@ -1277,7 +1418,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 24
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &214881705 stripped
 RectTransform:
@@ -1752,7 +1893,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1636595590}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.2903491
+  m_Size: 0.29034913
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2266,9 +2407,100 @@ MonoBehaviour:
       Trigger: 0
       TriggerText: 
       Connections: 07000000
-  CurrentSet: 0
+  - CurrentId: 5
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 80
+        y: 121
+        width: 150
+        height: 125
+      Text: '"If it isn''t the murdering detective, what do you want?'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000002000000
+    Windows:
+    - ID: 0
+      Size:
+        serializedVersion: 2
+        x: 80
+        y: 121
+        width: 150
+        height: 125
+      Text: '"If it isn''t the murdering detective, what do you want?'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000002000000
+    - ID: 1
+      Size:
+        serializedVersion: 2
+        x: 310
+        y: 90
+        width: 150
+        height: 125
+      Text: Claim that you are not the murderer
+      Type: 2
+      NodeType: 1
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 03000000
+    - ID: 2
+      Size:
+        serializedVersion: 2
+        x: 300
+        y: 248
+        width: 150
+        height: 125
+      Text: Leave the butler for now
+      Type: 2
+      NodeType: 2
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    - ID: 3
+      Size:
+        serializedVersion: 2
+        x: 493
+        y: 90
+        width: 150
+        height: 125
+      Text: '"In that case prove it. If you can convince the maid that you''re innocent,
+        then I''m willing to believe it as well."'
+      Type: 1
+      NodeType: 1
+      Parent: 1
+      Trigger: 0
+      TriggerText: 
+      Connections: 04000000
+    - ID: 4
+      Size:
+        serializedVersion: 2
+        x: 669
+        y: 86
+        width: 150
+        height: 125
+      Text: You'll have to prove your innocence first before the butler is willing
+        to talk to you
+      Type: 2
+      NodeType: 2
+      Parent: 3
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+  CurrentSet: 1
   TabList:
   - Prologue
+  - ButlerDefault
 --- !u!4 &343122118
 Transform:
   m_ObjectHideFlags: 0
@@ -2280,7 +2512,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &349906585
 Prefab:
@@ -2525,49 +2757,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 353720966}
---- !u!1 &367877868
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 367877870}
-  - component: {fileID: 367877869}
-  m_Layer: 0
-  m_Name: CountDialogues
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &367877869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 367877868}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Set: []
-  CurrentSet: 0
-  TabList: []
---- !u!4 &367877870
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 367877868}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 31
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &395142062
 Prefab:
   m_ObjectHideFlags: 0
@@ -2703,6 +2892,58 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
     type: 2}
   m_PrefabInternal: {fileID: 1695992424}
+--- !u!1001 &418479215
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 179.70749
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 188.65501
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4989763563765920, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_RootOrder
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 1029447941156964, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+      propertyPath: m_Name
+      value: ReporterDialogues
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: ecc1082e6095d6941ac126003ac4071e, type: 2}
+  m_IsPrefabParent: 0
+--- !u!114 &418479216 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114491215557418696, guid: ecc1082e6095d6941ac126003ac4071e,
+    type: 2}
+  m_PrefabInternal: {fileID: 418479215}
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
 --- !u!224 &437895403 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
@@ -3019,9 +3260,154 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Set: []
+  Set:
+  - CurrentId: 9
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 150
+        height: 125
+      Text: '"Get away from me, you murderer!"'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000008000000
+    Windows:
+    - ID: 0
+      Size:
+        serializedVersion: 2
+        x: 0
+        y: 58
+        width: 150
+        height: 125
+      Text: '"Get away from me, you murderer!"'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000008000000
+    - ID: 1
+      Size:
+        serializedVersion: 2
+        x: 161
+        y: 64
+        width: 150
+        height: 125
+      Text: '"I''m not the murderer"'
+      Type: 2
+      NodeType: 1
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 02000000
+    - ID: 2
+      Size:
+        serializedVersion: 2
+        x: 331
+        y: 67
+        width: 150
+        height: 125
+      Text: '"Don''t Lie. I saw the letter!"'
+      Type: 1
+      NodeType: 1
+      Parent: 1
+      Trigger: 0
+      TriggerText: 
+      Connections: 03000000
+    - ID: 3
+      Size:
+        serializedVersion: 2
+        x: 493
+        y: 63
+        width: 150
+        height: 125
+      Text: '"Did you read it?"'
+      Type: 2
+      NodeType: 1
+      Parent: 2
+      Trigger: 0
+      TriggerText: 
+      Connections: 04000000
+    - ID: 4
+      Size:
+        serializedVersion: 2
+        x: 497
+        y: 219
+        width: 150
+        height: 125
+      Text: '"What?. Of course not, that businessman won''t let it off his hands."'
+      Type: 1
+      NodeType: 1
+      Parent: 3
+      Trigger: 0
+      TriggerText: 
+      Connections: 0500000006000000
+    - ID: 5
+      Size:
+        serializedVersion: 2
+        x: 500
+        y: 374
+        width: 150
+        height: 125
+      Text: '"I see"'
+      Type: 2
+      NodeType: 2
+      Parent: 4
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    - ID: 6
+      Size:
+        serializedVersion: 2
+        x: 311
+        y: 375
+        width: 150
+        height: 125
+      Text: '"If that''s the case, how do you know it''s not fake?"'
+      Type: 2
+      NodeType: 1
+      Parent: 4
+      Trigger: 0
+      TriggerText: 
+      Connections: 07000000
+    - ID: 7
+      Size:
+        serializedVersion: 2
+        x: 305
+        y: 550
+        width: 150
+        height: 125
+      Text: '"You''re just saying that because you''re the culprit!"'
+      Type: 0
+      NodeType: 2
+      Parent: 6
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    - ID: 8
+      Size:
+        serializedVersion: 2
+        x: -3
+        y: 284
+        width: 150
+        height: 125
+      Text: Leave her be
+      Type: 2
+      NodeType: 2
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 
   CurrentSet: 0
-  TabList: []
+  TabList:
+  - MaidDefault
 --- !u!4 &479795759
 Transform:
   m_ObjectHideFlags: 0
@@ -3033,7 +3419,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 28
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &497098948
 Prefab:
@@ -3770,7 +4156,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 28
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &654106954 stripped
 RectTransform:
@@ -4127,49 +4513,6 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224383740196184562, guid: 51b7a7d10cf8dba4b80d4e353f2040c8,
     type: 2}
   m_PrefabInternal: {fileID: 1296076344}
---- !u!1 &716375854
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 716375856}
-  - component: {fileID: 716375855}
-  m_Layer: 0
-  m_Name: ReporterDialogues
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &716375855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 716375854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Set: []
-  CurrentSet: 0
-  TabList: []
---- !u!4 &716375856
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 716375854}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 26
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &719949946 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
@@ -4669,7 +5012,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &801907333 stripped
 RectTransform:
@@ -5092,7 +5435,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &859988092 stripped
 RectTransform:
@@ -6878,7 +7221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c12cbd10fce11ec4ebb20be8665e3da1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterDialogues: {fileID: 367877869}
+  CharacterDialogues: {fileID: 1429415136}
 --- !u!4 &1152419917
 Transform:
   m_ObjectHideFlags: 0
@@ -6890,7 +7233,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1167077167
 Prefab:
@@ -7854,9 +8197,129 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Set: []
+  Set:
+  - CurrentId: 7
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 4
+        y: 45
+        width: 150
+        height: 125
+      Text: '"Well, I suppose the bastard''s dead. Took long enough."'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000004000000
+    Windows:
+    - ID: 0
+      Size:
+        serializedVersion: 2
+        x: 4
+        y: 45
+        width: 150
+        height: 125
+      Text: '"Well, I suppose the bastard''s dead. Took long enough."'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000004000000
+    - ID: 1
+      Size:
+        serializedVersion: 2
+        x: 165
+        y: 49
+        width: 150
+        height: 125
+      Text: Ask if he hated the victim
+      Type: 2
+      NodeType: 1
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 02000000
+    - ID: 2
+      Size:
+        serializedVersion: 2
+        x: 325
+        y: 47
+        width: 150
+        height: 125
+      Text: '"Hate? No, I just disliked the damn cheater. Not quite as much as you
+        though, seeing how you took the matter to your own hands."'
+      Type: 1
+      NodeType: 1
+      Parent: 1
+      Trigger: 0
+      TriggerText: 
+      Connections: 03000000
+    - ID: 3
+      Size:
+        serializedVersion: 2
+        x: 320
+        y: 211
+        width: 150
+        height: 125
+      Text: Tell him you didn't kill the victim
+      Type: 2
+      NodeType: 1
+      Parent: 2
+      Trigger: 0
+      TriggerText: 
+      Connections: 05000000
+    - ID: 4
+      Size:
+        serializedVersion: 2
+        x: 4
+        y: 263
+        width: 150
+        height: 125
+      Text: Leave the chef alone for now.
+      Type: 2
+      NodeType: 2
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    - ID: 5
+      Size:
+        serializedVersion: 2
+        x: 481
+        y: 208
+        width: 150
+        height: 125
+      Text: '"Like I care if you did or didn''t do it. I suppose the maid might care
+        though, so if you really didn''t do it, you should probably convince her instead
+        of me."'
+      Type: 1
+      NodeType: 1
+      Parent: 3
+      Trigger: 0
+      TriggerText: 
+      Connections: 06000000
+    - ID: 6
+      Size:
+        serializedVersion: 2
+        x: 469
+        y: 383
+        width: 150
+        height: 125
+      Text: You should probably convince the maid of your innocence.
+      Type: 2
+      NodeType: 2
+      Parent: 5
+      Trigger: 0
+      TriggerText: 
+      Connections: 
   CurrentSet: 0
-  TabList: []
+  TabList:
+  - ChefDefault
 --- !u!4 &1248268468
 Transform:
   m_ObjectHideFlags: 0
@@ -7868,7 +8331,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1254471981
 GameObject:
@@ -8528,7 +8991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1315612236
 GameObject:
@@ -8569,7 +9032,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1328501431
 Prefab:
@@ -8958,7 +9421,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 21
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1401232339
 GameObject:
@@ -9307,6 +9770,140 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224383740196184562, guid: 51b7a7d10cf8dba4b80d4e353f2040c8,
     type: 2}
   m_PrefabInternal: {fileID: 1052292953}
+--- !u!1 &1429415135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1429415137}
+  - component: {fileID: 1429415136}
+  m_Layer: 0
+  m_Name: CountDialogues
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1429415136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429415135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Set:
+  - CurrentId: 5
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 5
+        y: 49
+        width: 150
+        height: 125
+      Text: '"Well, looks like I''m not the only one in the news tomorrow."'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 01000000
+    Windows:
+    - ID: 0
+      Size:
+        serializedVersion: 2
+        x: 5
+        y: 49
+        width: 150
+        height: 125
+      Text: '"Well, looks like I''m not the only one in the news tomorrow."'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 01000000
+    - ID: 1
+      Size:
+        serializedVersion: 2
+        x: 184
+        y: 52
+        width: 150
+        height: 125
+      Text: State that your aren't the killer
+      Type: 2
+      NodeType: 1
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 02000000
+    - ID: 2
+      Size:
+        serializedVersion: 2
+        x: 355
+        y: 52
+        width: 150
+        height: 125
+      Text: '"What do I care? It''s not like I really liked the guy that much anyway.
+        Always flaunting about his victories and getting mad when he lost."'
+      Type: 1
+      NodeType: 1
+      Parent: 1
+      Trigger: 0
+      TriggerText: 
+      Connections: 03000000
+    - ID: 3
+      Size:
+        serializedVersion: 2
+        x: 534
+        y: 58
+        width: 150
+        height: 125
+      Text: Ask what he's talking about
+      Type: 2
+      NodeType: 1
+      Parent: 2
+      Trigger: 0
+      TriggerText: 
+      Connections: 04000000
+    - ID: 4
+      Size:
+        serializedVersion: 2
+        x: 535
+        y: 233
+        width: 150
+        height: 125
+      Text: '"Cards, business, women. Everything really. If he could, he''d probably
+        throw a fit about dying before me as well."'
+      Type: 1
+      NodeType: 1
+      Parent: 3
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+  CurrentSet: 0
+  TabList:
+  - CountDefault
+--- !u!4 &1429415137
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429415135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 179.70749, y: 188.65501, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1432846520 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224539895735490144, guid: c8f38e2ed50600d428d4e6505553b873,
@@ -9427,7 +10024,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 25
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1505807772
 GameObject:
@@ -11493,7 +12090,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1810190515
 GameObject:
@@ -11737,7 +12334,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1864182001 stripped
 RectTransform:
@@ -11771,7 +12368,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Set: []
+  Set:
+  - CurrentId: 0
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 0
+        height: 0
+      Text: 
+      Type: 0
+      NodeType: 0
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    Windows: []
   CurrentSet: 0
   TabList: []
 --- !u!4 &1865657921
@@ -11785,7 +12400,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1869727086
 GameObject:
@@ -12500,7 +13115,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 22
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1916047283
 GameObject:
@@ -12782,9 +13397,99 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b10fe5d6867c1b5449b4bf163fcd72ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Set: []
+  Set:
+  - CurrentId: 5
+    NewWindowOpen: 0
+    FirstWindow:
+      ID: 0
+      Size:
+        serializedVersion: 2
+        x: 6
+        y: 55
+        width: 150
+        height: 125
+      Text: '"What, did you come to threaten me as well, murderer?"'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000004000000
+    Windows:
+    - ID: 0
+      Size:
+        serializedVersion: 2
+        x: 6
+        y: 55
+        width: 150
+        height: 125
+      Text: '"What, did you come to threaten me as well, murderer?"'
+      Type: 1
+      NodeType: 0
+      Parent: -1
+      Trigger: 0
+      TriggerText: 
+      Connections: 0100000004000000
+    - ID: 1
+      Size:
+        serializedVersion: 2
+        x: 175
+        y: 56
+        width: 150
+        height: 125
+      Text: Tell him you will prove the letter fake.
+      Type: 2
+      NodeType: 1
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 02000000
+    - ID: 2
+      Size:
+        serializedVersion: 2
+        x: 351
+        y: 56
+        width: 150
+        height: 125
+      Text: '"Good luck trying, as it''s going to be safely tucked in my back pocket
+        until the police arrive.'
+      Type: 1
+      NodeType: 1
+      Parent: 1
+      Trigger: 0
+      TriggerText: 
+      Connections: 03000000
+    - ID: 3
+      Size:
+        serializedVersion: 2
+        x: 533
+        y: 53
+        width: 150
+        height: 125
+      Text: Leave for now.
+      Type: 2
+      NodeType: 2
+      Parent: 2
+      Trigger: 0
+      TriggerText: 
+      Connections: 
+    - ID: 4
+      Size:
+        serializedVersion: 2
+        x: 172
+        y: 212
+        width: 150
+        height: 125
+      Text: Ignore his accusation and leave.
+      Type: 2
+      NodeType: 2
+      Parent: 0
+      Trigger: 0
+      TriggerText: 
+      Connections: 
   CurrentSet: 0
-  TabList: []
+  TabList:
+  - BusinessmanDefault
 --- !u!4 &1964766431
 Transform:
   m_ObjectHideFlags: 0
@@ -12796,7 +13501,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 27
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1986762097
 Prefab:
