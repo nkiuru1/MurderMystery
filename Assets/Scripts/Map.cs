@@ -22,8 +22,11 @@ public class Map : MonoBehaviour
     Room Library;
     Room Servant;
     Room Current;
-    public Character Butler, Count, Chef, Maid, Businessman, Nobleman, Reporter, Doctor, Writer, Constable, Narrator;
+    public Character Butler, Count, Chef, Maid, Businessman, Reporter, Doctor, Writer, Narrator;
 
+    /// <summary>
+    /// Creates the map and buttons.
+    /// </summary>
     public void Createmap()
     {
         Lobby = new Room("Lobby");
@@ -47,7 +50,10 @@ public class Map : MonoBehaviour
         KitchenBtn = (PointerController)GameObject.Find("BtnKitchen").GetComponent<PointerController>();
 
     }
-
+    /// <summary>
+    /// Generates the characters and their respective clues.
+    /// Also sets their starting location.
+    /// </summary>
     private void GenerateCharacters()
     {
         Count.SetData("Count", Library);
@@ -55,12 +61,10 @@ public class Map : MonoBehaviour
         Chef.SetData("Chef", Kitchen);
         Maid.SetData("Maid", Kitchen);
         Businessman.SetData("Businessman", Servant);
-        Nobleman.SetData("Nobleman", null);
         Reporter.SetData("Reporter", Servant);
         Doctor.SetData("Doctor", Servant);
         Writer.SetData("Writer", Library);
-        Constable.SetData("Constable", null);
-        Narrator.SetData("Narrator", null);
+        Narrator.SetData("Narrator", Dinner);
 
         List<Character> lobbyChars = new List<Character>
         {
@@ -110,16 +114,17 @@ public class Map : MonoBehaviour
         Maid.SetClue(new Clue("Maid", "The maid of the mansion. Usually capable, but after his employer's death, she went into a shock."));
         Businessman.SetClue(new Clue("Businessman", "A shrew businessman. Claims that you are the culprit, making him number one suspect on your list. " +
             "However, this might be exactly what the culprit wants you to believe"));
-        Nobleman.SetClue(new Clue("Nobleman", "The now deceased owner of the mansion. An old friend of yours, whom you haven't met in ages. " +
-            "He won't be able to rest in peace until the culprit has been found."));
         Reporter.SetClue(new Clue("Reporter", "A young news reporter. Came to the mansion to snoop for scandals, but found something more news worthy." +
             " You aren't exactly happy about her constant questioning."));
         Doctor.SetClue(new Clue("Doctor", "An old doctor with some fame. The first to inspect the victim. " +
             "Coupled with his knowledge of medicine, he is without a doubt a suspect."));
         Writer.SetClue(new Clue("Writer", "A woman whom you didn't even know before this night. " +
             "Apparently the author of a bestseller detective story."));
-        Constable.SetClue(new Clue("Constable", "The police officer who is on his way to the mansion."));
     }
+
+    /// <summary>
+    /// Generates the clues that can be picked up from the beginning.
+    /// </summary>
     private void GenerateClues()
     {
         List<Clue> temp = new List<Clue>
@@ -189,7 +194,11 @@ public class Map : MonoBehaviour
         };
         Study.SetClues(temp8);
     }
-
+    /// <summary>
+    /// Listens to buttons click and returns the room.
+    /// </summary>
+    /// <param name="Location"></param>
+    /// <returns></returns>
     public Room Mapclick(Room Location)
     {
         this.Current = Location;
@@ -230,12 +239,19 @@ public class Map : MonoBehaviour
             return Current;
         }
     }
-
+    /// <summary>
+    /// Returns the starting location
+    /// </summary>
+    /// <returns></returns>
     public Room GetStartLocation()
     {
         return this.Lobby;
     }
-
+    /// <summary>
+    /// Returns the Room object based on name.
+    /// </summary>
+    /// <param name="name"></param>
+    /// <returns></returns>
     public Room GetRoomObject(string name)
     {
         if (name.Equals("Lobby")) return Lobby;
@@ -248,11 +264,20 @@ public class Map : MonoBehaviour
         if (name.Equals("Servant")) return Servant;
         return null;
     }
-
+    /// <summary>
+    /// Moves a character from one room to the next.
+    /// </summary>
+    /// <param name="Person"></param>
+    /// <param name="TargetRoom"></param>
     public void TransportCharacter(Character Person, Room TargetRoom)
     {
         Person.GetLocation().RemoveCharacter(Person.GetName());
         TargetRoom.BringCharacterIntoThisRoom(Person);
         Person.ChangeLocation(TargetRoom);
+    }
+
+    public void RemoveCharacter(Character person)
+    {
+        person.GetLocation().RemoveCharacter(person.GetName());
     }
 }

@@ -13,10 +13,11 @@ public class GameController : MonoBehaviour
     public Text LocationText, TurnText;
     public Turn Turn;
     public Player MyPlayer;
-    public Character Butler, Count, Chef, Maid, Businessman, Nobleman, Reporter, Doctor, Writer, Constable, Narrator;
-    private string RoomName = "Entrance Hall";
+    public Character Butler, Count, Chef, Maid, Businessman, Reporter, Doctor, Writer, Narrator;
+    private string RoomName = "Lobby";
     private Canvas CurrentCanvas;
     private Room Location;
+    private int LastTurn = 0;
 
     /// <summary>
     /// Initializes all objects and sets the starting location to the Entrance.
@@ -51,9 +52,9 @@ public class GameController : MonoBehaviour
         Location = this.GameMap.Mapclick(Location);
         if (!RoomName.Equals(Location.GetName()))
         {
-            if (Location.GetName().Equals("Entrance Hall") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Lobby")))
+            if (Location.GetName().Equals("Lobby") && this.CanMoveToRoom(this.GameMap.GetRoomObject("Lobby")))
             {
-                this.RoomName = "Entrance Hall";
+                this.RoomName = "Lobby";
                 this.DisableCanvas();
                 Entrance.enabled = true;
                 CurrentCanvas = Entrance;
@@ -115,10 +116,14 @@ public class GameController : MonoBehaviour
                 CurrentCanvas = Study;
                 Turn.NextTurn();
             }
-            this.TurnAction();
             this.LocationText.text = this.RoomName;
             this.TurnText.text = (30 - Turn.GetTurn()).ToString();
         }
+        if (this.LastTurn != this.Turn.GetTurn())
+        {
+            this.TurnAction();
+        }
+            
         this.Buttons.UpdateRoom(Location, CurrentCanvas);
     }
     /// <summary>
@@ -202,23 +207,22 @@ public class GameController : MonoBehaviour
         }
         return true;
     }
+
     /// <summary>
     /// Makes changes in the game world when turn has changed.
+    /// Changes Dialogue trees & Moves Characters
     /// </summary>
     public void TurnAction()
     {
         if (Turn.GetTurn() == 1 && !this.Butler.GetTreeName().Equals("ButlerDefault"))
         {
-            Debug.Log(this.Butler.GetTreeName());
             this.Buttons.DiningRoomAction();
             this.Butler.SetTree("ButlerDefault");
         }
-        // test code
-        // move character to Lounge on turn 3
-        //if (Turn.GetTurn() == 3)
-        //{
-        //    GameMap.TransportCharacter(Nobleman, GameMap.GetRoomObject("Lounge"));
-        //}
+        if(Turn.GetTurn() == 2)
+        {
+            this.GameMap.RemoveCharacter(Narrator);
+        }
         if (Turn.GetTurn() == 30)
         {
             SceneManager.LoadScene(3);
@@ -235,7 +239,7 @@ public class GameController : MonoBehaviour
 
         if(this.MyPlayer.GetNotebook().HasClue("Diary") && this.MyPlayer.MadeAgreementWithReporter())
         {
-            this.Reporter.SetTree("ReporterWithAgreement");
+            this.Reporter.SetTree("ReporterAgreement");
         }
         if (this.MyPlayer.GetNotebook().HasClue("Study Room Key"))
         {
@@ -246,6 +250,7 @@ public class GameController : MonoBehaviour
         {
             this.Doctor.SetTree("DoctorWithWill");
         }
+
         if (this.MyPlayer.GetNotebook().HasClue("Study Room Key"))
         {
             this.Chef.SetTree("ChefWithStudyKey");
@@ -272,13 +277,16 @@ public class GameController : MonoBehaviour
             this.Chef.SetTree("ChefCanAccuse");
             this.Count.SetTree("CountCanAccuse");
             this.Writer.SetTree("WriterCanAccuse");
-            this.Businessman.SetTree("BusinessmanCanAccuse");
+            if (this.MyPlayer.GetNotebook().GetClues().Count == 29)
+            {
+                this.Businessman.SetTree("BusinessmanCanAccuse");
+            }
         }
 
     }
 
     private bool TimeHasPassed()
     {
-        return (Turn.GetTurn() > 25 && this.MyPlayer.GetNotebook().GetClues().Count > 30);
+        return (Turn.GetTurn() > 25 && this.MyPlayer.GetNotebook().GetClues().Count > 26);
     }
 }

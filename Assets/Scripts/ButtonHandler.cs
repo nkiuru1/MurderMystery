@@ -34,6 +34,7 @@ public class ButtonHandler : MonoBehaviour
 
     /// <summary>
     /// Creates the default buttons.
+    /// Disables all clues & Adds them to a dictionary
     /// </summary>
     /// <param name="MyPlayer">My player.</param>
     public void CreateDefaultButtons(Player MyPlayer)
@@ -84,7 +85,16 @@ public class ButtonHandler : MonoBehaviour
         {
             this.SetActionUI();
             this.InvCanvas.enabled = true;
-            int y = 530;
+            int y;
+            if (Application.platform == RuntimePlatform.Android)
+            {
+                y = 160;
+            }
+            else
+            {
+                y = 530;
+            }
+
 
             foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {
@@ -172,15 +182,25 @@ public class ButtonHandler : MonoBehaviour
             if (item != null && this.CharacterTalk != null && ButtonIsClicked(item))
             {
                 clicked = true;
-                if (!this.CharacterTalk.NextChoice(item.GetComponentInChildren<Text>().text))
+                try
                 {
-                    this.CharacterTalk.Next();
+                    if (!this.CharacterTalk.NextChoice(item.GetComponentInChildren<Text>().text))
+                    {
+                        this.CharacterTalk.Next();
+                    }
+                    if (item.GetComponentInChildren<Text>().text.Equals("Goodbye"))
+                    {
+                        this.SetDefaultUI();
+                        clicked = false;
+                    }
                 }
-                if (item.GetComponentInChildren<Text>().text.Equals("Goodbye"))
+                catch (Exception)
                 {
+
                     this.SetDefaultUI();
                     clicked = false;
                 }
+
             }
             else if (this.CharacterTalk == null && item != null)
             {
@@ -272,7 +292,18 @@ public class ButtonHandler : MonoBehaviour
             this.CharacterTalk.Talked();
             if (MyPlayer.GetNotebook().GetClue(this.CharacterTalk.GetName()) == null)
             {
-                if(this.CharacterTalk.GetClue() != null) MyPlayer.GetNotebook().AddClue(this.CharacterTalk.GetClue());
+                if (this.CharacterTalk.GetClue() != null) MyPlayer.GetNotebook().AddClue(this.CharacterTalk.GetClue());
+                if (this.CharacterTalk.GetName().Equals("Reporter") && MyPlayer.MadeAgreementWithReporter())
+                {
+                    MyPlayer.GetNotebook().DeleteClue("Diary");
+                }
+                if (this.CharacterTalk.GetName().Equals("Reporter")) MyPlayer.MakeAgreement();
+
+                if (this.CharacterTalk.GetTreeName().Equals("BusinessmanReporterAgreement"))
+                {
+                    MyPlayer.GetNotebook().AddClue(new Clue("Letter (fake)", "It seems to be a letter written by you, filled with threats to the victim. " +
+                        "You don't remember writing it. It must be a fake, right?"));
+                }
             }
         }
         this.CharacterTalk = null;
@@ -349,7 +380,9 @@ public class ButtonHandler : MonoBehaviour
     {
         return Talking;
     }
-
+    /// <summary>
+    /// Opens Talk Menu At the beginning of the game
+    /// </summary>
     public void GameStart()
     {
         this.TalkAction();
