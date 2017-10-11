@@ -85,27 +85,18 @@ public class ButtonHandler : MonoBehaviour
         {
             this.SetActionUI();
             this.InvCanvas.enabled = true;
-            int y;
-            if (Application.platform == RuntimePlatform.Android)
-            {
-                y = 160;
-            }
-            else
-            {
-                y = 530;
-            }
-
+            int y= 10;
 
             foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {
                 GameObject obj = Instantiate(BtnInv);
                 Vector2 pos = obj.transform.position;
-                pos.y = y;
+                pos.y = ContentPanel.transform.position.y - y;
                 obj.transform.position = pos;
                 obj.GetComponentInChildren<Text>().text = item.GetName();
                 obj.transform.SetParent(ContentPanel, false);
                 Clues.Add(item, obj);
-                y -= 40;
+                y += 40;
             }
         }
         //Opens Map canvas
