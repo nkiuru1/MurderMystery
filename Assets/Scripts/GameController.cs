@@ -18,6 +18,7 @@ public class GameController : MonoBehaviour
     private Canvas CurrentCanvas;
     private Room Location;
     private int LastTurn = 0;
+    private int MaxTurns = 20;
 
     /// <summary>
     /// Initializes all objects and sets the starting location to the Entrance.
@@ -35,7 +36,7 @@ public class GameController : MonoBehaviour
         this.MyPlayer.SetData(PlayerNotebook);
         this.Buttons.CreateDefaultButtons(MyPlayer);
         this.LocationText.text = this.RoomName;
-        this.TurnText.text = (30 - Turn.GetTurn()).ToString();
+        this.TurnText.text = (this.MaxTurns - Turn.GetTurn()).ToString();
         this.Buttons.UpdateRoom(this.Location, this.CurrentCanvas);
         this.Buttons.GameStart();
     }
@@ -117,13 +118,13 @@ public class GameController : MonoBehaviour
                 Turn.NextTurn();
             }
             this.LocationText.text = this.RoomName;
-            this.TurnText.text = (30 - Turn.GetTurn()).ToString();
+            this.TurnText.text = (this.MaxTurns - Turn.GetTurn()).ToString();
         }
         if (this.LastTurn != this.Turn.GetTurn())
         {
             this.TurnAction();
         }
-            
+
         this.Buttons.UpdateRoom(Location, CurrentCanvas);
     }
     /// <summary>
@@ -219,11 +220,11 @@ public class GameController : MonoBehaviour
             this.Buttons.DiningRoomAction();
             this.Butler.SetTree("ButlerDefault");
         }
-        if(Turn.GetTurn() == 2)
+        if (Turn.GetTurn() == 2)
         {
             this.GameMap.RemoveCharacter(Narrator);
         }
-        if (Turn.GetTurn() == 30)
+        if (Turn.GetTurn() >= this.MaxTurns)
         {
             SceneManager.LoadScene(3);
         }
@@ -237,7 +238,7 @@ public class GameController : MonoBehaviour
             this.Maid.SetTree("MaidWithoutFakeLetter");
         }
 
-        if(this.MyPlayer.GetNotebook().HasClue("Diary") && this.MyPlayer.MadeAgreementWithReporter())
+        if (this.MyPlayer.GetNotebook().HasClue("Diary") && this.MyPlayer.MadeAgreementWithReporter())
         {
             this.Reporter.SetTree("ReporterAgreement");
         }
@@ -246,7 +247,7 @@ public class GameController : MonoBehaviour
             this.Butler.SetTree("ButlerWithStudyKey");
         }
 
-        if(this.MyPlayer.GetNotebook().HasClue("Victim's Will"))
+        if (this.MyPlayer.GetNotebook().HasClue("Victim's Will"))
         {
             this.Doctor.SetTree("DoctorWithWill");
         }
@@ -255,7 +256,7 @@ public class GameController : MonoBehaviour
         {
             this.Chef.SetTree("ChefWithStudyKey");
         }
-        if(this.MyPlayer.GetNotebook().HasClue("Playing Cards"))
+        if (this.MyPlayer.GetNotebook().HasClue("Playing Cards"))
         {
             this.Count.SetTree("CountWithPlayingCards");
         }
@@ -277,16 +278,19 @@ public class GameController : MonoBehaviour
             this.Chef.SetTree("ChefCanAccuse");
             this.Count.SetTree("CountCanAccuse");
             this.Writer.SetTree("WriterCanAccuse");
-            if (this.MyPlayer.GetNotebook().GetClues().Count == 29)
+            if (this.MyPlayer.GetNotebook().GetClues().Count >= 28)
             {
                 this.Businessman.SetTree("BusinessmanCanAccuse");
             }
         }
 
     }
-
+    /// <summary>
+    /// Checks if Enough turns have passed so you can accuse the murderer.
+    /// </summary>
+    /// <returns></returns>
     private bool TimeHasPassed()
     {
-        return (Turn.GetTurn() > 25 && this.MyPlayer.GetNotebook().GetClues().Count > 26);
+        return (Turn.GetTurn() >= 15 && this.MyPlayer.GetNotebook().GetClues().Count > 26);
     }
 }
