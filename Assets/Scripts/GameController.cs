@@ -278,7 +278,7 @@ public class GameController : MonoBehaviour
             this.Chef.SetTree("ChefCanAccuse");
             this.Count.SetTree("CountCanAccuse");
             this.Writer.SetTree("WriterCanAccuse");
-            if (this.MyPlayer.GetNotebook().GetClues().Count >= 28)
+            if (this.MyPlayer.GetNotebook().GetClues().Count >= 25)
             {
                 this.Businessman.SetTree("BusinessmanCanAccuse");
             }
@@ -291,6 +291,6 @@ public class GameController : MonoBehaviour
     /// <returns></returns>
     private bool TimeHasPassed()
     {
-        return (Turn.GetTurn() >= 15 && this.MyPlayer.GetNotebook().GetClues().Count > 26);
+        return (Turn.GetTurn() >= 15 && this.MyPlayer.GetNotebook().GetClues().Count > 20);
     }
 }
