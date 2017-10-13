@@ -85,7 +85,7 @@ public class ButtonHandler : MonoBehaviour
         {
             this.SetActionUI();
             this.InvCanvas.enabled = true;
-            int y= 10;
+            int y= 20;
 
             foreach (Clue item in this.MyPlayer.GetNotebook().GetClues())
             {
